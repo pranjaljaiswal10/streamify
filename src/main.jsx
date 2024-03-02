@@ -4,7 +4,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Body from './components/Body.jsx'
-
+import WatchPage from "./components/WatchPage.jsx"
 
 
 const router=createBrowserRouter([{
@@ -14,6 +14,9 @@ const router=createBrowserRouter([{
     {
       path:"/",
       element:<Body/>
+    },{
+      path:"",
+      element:<WatchPage/>
     }
   ]
 }])
