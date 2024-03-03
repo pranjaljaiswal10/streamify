@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+    const toggleBar=useSelector((store)=>store.menu.toggleMenu)
   return (
-    <div className="px-6 w-48 h-full ">
+    toggleBar && <div className="px-6 w-48  ">
     <div className="space-y-3 mt-4">
         <h1 className="font-bold ">Home</h1>
         <ul>

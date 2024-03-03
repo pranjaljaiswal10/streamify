@@ -4,11 +4,13 @@ import ButtonList from "./buttonList";
 
 const Body = () => {
   return (
-    <>
+    <div className="flex">
     <SideBar/>
+    <div>
     <ButtonList/>
     <VideoContainer/>
-    </>
+    </div>
+    </div>
   );
 };
 

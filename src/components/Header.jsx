@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { LOGO } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/menuSlice";
 
 
 const Header = () => {
   const [searchQuery,setSearchQuery]=useState("")
- 
+ const dispatch=useDispatch()
+ const handleToggle=()=>{
+  dispatch(toggleMenu())
+ }
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
      <div className="logo flex col-span-1">
-    <img className="h-8 cursor-pointer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/48px-Hamburger_icon.svg.png" alt="" />
+    <img className="h-8 cursor-pointer" onClick={handleToggle} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/48px-Hamburger_icon.svg.png" alt="" />
       <img src={LOGO} alt="youtube-logo" className="h-8 mx-2" />
      </div>
      <div className="col-span-10 px-10">
