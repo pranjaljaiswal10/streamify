@@ -6,15 +6,25 @@ import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
   const [videoList,setVideoList]=useState([])
- async function getData(){
+ async function getVideos(){
    const response=await fetch(YOUTUBE_VIDEOS_API)
    const data=await response.json();
-   console.log(data,import.meta.env.VITE_GOOGLE_API_KEY)
   setVideoList(data.items)
  } 
   useEffect(()=>{
-  getData()
+  getVideos()
   },[])
+async function getChannelDetail(){
+  
+}
+
+
+
+  useEffect(()=>{
+    getChannelDetail()
+  },[])
+
+
   return (
   <div className="mx-4 flex flex-wrap">
     

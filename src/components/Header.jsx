@@ -14,13 +14,13 @@ const Header = () => {
     dispatch(toggleMenu());
   };
   return (
-    <div className="grid grid-flow-col p-5 m-2 shadow-lg">
+    <div className="grid grid-flow-col p-5 m-2  shadow-lg">
       <div className="logo flex col-span-1">
         <img
           className="h-8 cursor-pointer"
           onClick={handleToggle}
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/48px-Hamburger_icon.svg.png"
-          alt=""
+          alt="humberger-menu"
         />
         <img src={LOGO} alt="youtube-logo" className="h-8 mx-2" />
       </div>
