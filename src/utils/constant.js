@@ -1,9 +1,8 @@
 export const YOUTUBE_SEARCH_BY_KEYWORD =
   "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=";
 
-export const YOUTUBE_VIDEOS_API =(nextToken)=>
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&pageToken=" +
-  nextToken +
+export const YOUTUBE_VIDEOS_API=
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&pageToken="  +
   "&regionCode=IN&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 
