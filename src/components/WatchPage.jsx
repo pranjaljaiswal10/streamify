@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams} from "react-router-dom";
 import { closeMenu } from "../utils/menuSlice";
+import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 
 
 const WatchPage = () => {
@@ -11,19 +12,19 @@ const WatchPage = () => {
    dispatch(closeMenu())
     },[dispatch])
   return (
-    <>
+    
     <div className="pl-32">
       <iframe className="h-[415px] w-[415px] "
             width="1200"
             height="600"
             src={"https://www.youtube.com/embed/" + searchParams.get("v")+"?&autoplay=0"}
             title="YouTube video player"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
+       <WatchVideoDetailContainer videoId={searchParams.get("v")} />
        </div> 
-    </>
+    
   );
 };
 
