@@ -6,7 +6,6 @@ import { PiShareFat } from "react-icons/pi";
 
 const WatchVideoButtonList = ({ channelId,likeCount }) => {
   const [channelDetail, setChannelDetail] = useState();
-  console.log(likeCount)
   useEffect(() => {
     const getChannelDetail = async () => {
       const response = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId));

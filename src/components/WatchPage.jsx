@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useSearchParams} from "react-router-dom";
 import { closeMenu } from "../utils/menuSlice";
 import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
+import SuggestionVideoContainer from "./SuggestionVideoContainer";
+import CommentContainer from "./CommentContainer";
 
 
 const WatchPage = () => {
@@ -23,6 +25,9 @@ const WatchPage = () => {
             allowFullScreen
           ></iframe>
        <WatchVideoDetailContainer videoId={searchParams.get("v")} />
+       <CommentContainer videoId={searchParams.get("v")}/>
+       {/* <SuggestionVideoContainer /> */}
+
        </div> 
     
   );

@@ -23,6 +23,12 @@ export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
 export const YOUTUBE_SEARCH_API =
 "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+export const YOUTUBE_SEARCH_VIDEO_API = (videoIdList) =>
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
+  videoIdList.toString() +
+  "&key=" +
+  import.meta.env.VITE_GOOGLE_API_KEY;
+
 export const YOUTUBE_SEARCH_BY_KEYWORD =
 "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=";
 
@@ -42,11 +48,9 @@ export const YOUTUBE_CHANNEL_DETAILS_API = (channelId) =>
   "&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_COMMENTS_API = (videoId, nextToken) =>
+export const YOUTUBE_COMMENTS_API = (videoId) =>
   "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&videoId=" +
   videoId +
-  "&pageToken=" +
-  nextToken +
   "&prettyPrint=true&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 

@@ -4,6 +4,7 @@ import WatchVideoButtonList from "./WatchVideoButtonList";
 import WatchvideoDescription from "./WatchvideoDescription";
 
 
+
 const WatchVideoDetailContainer = ({videoId}) => {
    const [videoDetail,setVideoDetail]=useState(null)
   useEffect(()=>{
@@ -24,13 +25,14 @@ const WatchVideoDetailContainer = ({videoId}) => {
 if(!videoDetail) return
 
 const {snippet,statistics}=videoDetail
-console.log(videoDetail)
+
   return (
     <>
   <h1>{snippet.title}</h1>
   <h2>{snippet.channelTitle}</h2>
   <WatchVideoButtonList channelId={snippet.channelId} {...statistics}/>
   <WatchvideoDescription  {...snippet} {...statistics} />
+  <span>{statistics.commentCount} Comments</span>
     </>
   );
 };
