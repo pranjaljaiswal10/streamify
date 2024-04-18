@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_COMMENTS_API } from "../utils/constant";
-import CommentCard from "./CommentCard";
+import  CommentList from "./CommentList";
+
 
 
 const CommentContainer = ({videoId}) => {
   const [commentList,setCommetList]=useState([])
-  const [token,setToken]=useState("")
   useEffect(()=>{
     const getCommentDetail=async()=>{
       const response=await fetch(YOUTUBE_COMMENTS_API(videoId))
@@ -16,15 +16,13 @@ const CommentContainer = ({videoId}) => {
   },[videoId])
 
 if(commentList.length==0) return null
-//  console.log(commentList)
-  return (
-    <div>
-      <ul>
+console.log(commentList)
+return (
+  <ul className="py-6">
     {
-      commentList.map((item)=><CommentCard  {...item} key={item.id}/>)
+      commentList.map((item)=><CommentList {...item}  key={item.id}/>)
     }
-    </ul>
-   </div>
+      </ul>
   )
 };
 

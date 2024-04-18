@@ -28,11 +28,10 @@ const {snippet,statistics}=videoDetail
 
   return (
     <>
-  <h1>{snippet.title}</h1>
-  <h2>{snippet.channelTitle}</h2>
+  <h1 className="font-bold text-lg py-3">{snippet.title}</h1>
   <WatchVideoButtonList channelId={snippet.channelId} {...statistics}/>
   <WatchvideoDescription  {...snippet} {...statistics} />
-  <span>{statistics.commentCount} Comments</span>
+  <span className="py-6">{statistics.commentCount} Comments</span>
     </>
   );
 };

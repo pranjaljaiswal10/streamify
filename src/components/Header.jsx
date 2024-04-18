@@ -2,6 +2,8 @@ import { useState } from "react";
 import { LOGO } from "../utils/constant";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/menuSlice";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -14,17 +16,12 @@ const Header = () => {
     dispatch(toggleMenu());
   };
   return (
-    <div className="grid grid-flow-col p-5 m-2  shadow-lg">
-      <div className="logo flex col-span-1">
-        <img
-          className="h-8 cursor-pointer"
-          onClick={handleToggle}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/48px-Hamburger_icon.svg.png"
-          alt="humberger-menu"
-        />
-        <img src={LOGO} alt="youtube-logo" className="h-8 mx-2" />
+    <div className="flex items-center justify-between px-6 py-1  m-2  shadow-lg">
+      <div className="logo flex items-center cursor-pointer">
+        <GiHamburgerMenu onClick={handleToggle} size={32}/>
+        <img src={LOGO} alt="youtube-logo" className="h-12 mx-6" />
       </div>
-      <div className="col-span-10 px-10">
+      <div className="mx-6 w-1/2  ">
         <div>
           <input
             type="text "
@@ -38,12 +35,8 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <div className="col-span-1">
-        <img
-          src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
-          className="h-8"
-          alt=""
-        />
+      <div className="cursor-pointer">
+       <FaUserCircle size={32}/>
       </div>
     </div>
   );

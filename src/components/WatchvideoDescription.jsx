@@ -1,12 +1,12 @@
 
 
-const WatchvideoDescription = ({description,tags,publishedAt,viewCount}) => {
+const WatchvideoDescription = ({description,publishedAt,viewCount}) => {
 
-  return (<div>
+  return (<div className="bg-slate-100 hover:bg-slate-300 p-4 rounded">
   <span>{viewCount}</span>
-  <span>{tags.join(" #")}</span>
+  <span className="px-4">{publishedAt}</span>
   <br/>
-  <p>{description}</p>
+  <p className="text-sm whitespace-pre-line">{description}</p>
   </div>)
 };
 
