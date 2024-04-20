@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { YOUTUBE_VIDEO_DETAILS_API } from "../utils/constant";
 import WatchVideoButtonList from "./WatchVideoButtonList";
 import WatchvideoDescription from "./WatchvideoDescription";
+import { formatter } from "../utils/helper";
 
 
 
@@ -31,7 +32,7 @@ const {snippet,statistics}=videoDetail
   <h1 className="font-bold text-lg py-3">{snippet.title}</h1>
   <WatchVideoButtonList channelId={snippet.channelId} {...statistics}/>
   <WatchvideoDescription  {...snippet} {...statistics} />
-  <span className="py-6">{statistics.commentCount} Comments</span>
+  <span className="py-6">{formatter.format(statistics.commentCount)} Comments</span>
     </>
   );
 };

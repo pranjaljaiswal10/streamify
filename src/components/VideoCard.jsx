@@ -1,4 +1,5 @@
 import { USER_ICON } from "../utils/constant";
+import { formatter } from "../utils/helper";
 
 
 const VideoCard = ({snippet,statistics,thumbnails}) => {
@@ -14,7 +15,7 @@ const VideoCard = ({snippet,statistics,thumbnails}) => {
         <div className="w-10/12 text-xs">
         <h1 className="font-bold  py-2"> {title}</h1>
         <h2>{channelTitle}</h2>
-        <h3>{(viewCount/1000000).toFixed(1)}M views</h3>
+        <h3>{formatter.format(viewCount)} views</h3>
         </div>
         </div>
     </div>

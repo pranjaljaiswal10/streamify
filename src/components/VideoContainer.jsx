@@ -35,7 +35,7 @@ const VideoContainer = () => {
   },[getChannelDetail])
 
 
-// console.log(videoList)
+console.log(videoList)
   return (
     <div className="mx-4 flex flex-wrap">
       {videoList.map((item,index) => (
