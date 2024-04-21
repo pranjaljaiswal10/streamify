@@ -25,8 +25,8 @@ const WatchVideoButtonList = ({ channelId, likeCount }) => {
   return (
     <>
     <div className="flex justify-between">
-      <img src={medium.url} className="h-10" alt="" />
-      <div className="flex-1">
+      <img src={medium.url} className="h-10 rounded-full" alt="" />
+      <div className="flex-1 pl-2">
       <strong>{snippet.title}</strong>
        <small className="block">{formatter.format(statistics.subscriberCount)} subscribers</small>
        </div>

@@ -1,3 +1,5 @@
+export const LIVE_CHAT_COUNT=10
+
 export const LOGO =
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF68guDqYDnuB3q66g5D8QWPHUWveqth6NHrqkoZRVqUXjqoseolP1W4JWHxVOe11FzLc&usqp=CAU"
 
@@ -8,11 +10,16 @@ export const YOUTUBE_VIDEOS_API=
 "&regionCode=IN&key=" +
 import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&relatedToVideoId=" +
-  videoId +
-  "&type=video&key=" +
-  import.meta.env.VITE_GOOGLE_API_KEY;
+export const YOUTUBE_RELATED_VIDEOS_ID_API=(videoId)=> 
+"https://youtube-v2.p.rapidapi.com/video/recommendations?video_id="+videoId;
+
+export  const OPTIONS = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'd27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5',
+    'X-RapidAPI-Host': 'youtube-v2.p.rapidapi.com'
+  }
+}
 
   export const YOUTUBE_VIDEO_DETAILS_API = (videoId) =>
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +

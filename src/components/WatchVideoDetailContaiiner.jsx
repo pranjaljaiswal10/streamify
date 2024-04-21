@@ -6,6 +6,7 @@ import { formatter } from "../utils/helper";
 
 
 
+
 const WatchVideoDetailContainer = ({videoId}) => {
    const [videoDetail,setVideoDetail]=useState(null)
   useEffect(()=>{
@@ -33,6 +34,7 @@ const {snippet,statistics}=videoDetail
   <WatchVideoButtonList channelId={snippet.channelId} {...statistics}/>
   <WatchvideoDescription  {...snippet} {...statistics} />
   <span className="py-6">{formatter.format(statistics.commentCount)} Comments</span>
+ 
     </>
   );
 };
