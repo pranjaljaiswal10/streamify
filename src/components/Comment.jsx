@@ -5,7 +5,6 @@ const Comment = ({message}) => {
    const {authorDisplayName,authorProfileImageUrl,likeCount,textOriginal,publishedAt}=message
    return(
   <div className="flex">
-  
      <img src={authorProfileImageUrl} alt={authorDisplayName} className="rounded-full w-10 h-10 pt-1" />
      <div className="px-3">
       <strong>{authorDisplayName}</strong><span className="text-xs text-gray-600 px-3">{publishedAt}</span>

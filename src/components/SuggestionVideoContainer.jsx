@@ -14,7 +14,7 @@ const SuggestionVideoContainer = () => {
       const response=await fetch(YOUTUBE_RELATED_VIDEOS_ID_API(searchParams.get('v')),OPTIONS)
       const json=await response.json()
       console.log(json)
-      setRelatedVideoIdList(json.videos)
+      setRelatedVideoIdList(json.data)
     }
     getSuggestionVideo(searchParams.get("v"))
   },[searchParams])
@@ -26,7 +26,7 @@ console.log(relatedVideoIdList)
     {
       
       relatedVideoIdList.map((item)=>
-      <Link to={`/watch?v=${item.video_id}`} key={item.video_id} >
+      <Link to={`/watch?v=${item.videoId}`} key={item.videoId} >
       <SuggestionCard {...item}/>
       </Link>
       )

@@ -6,6 +6,7 @@ import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 import CommentContainer from "./CommentContainer";
 import SuggestionVideoContainer from "./SuggestionVideoContainer";
 import LiveMessageContainer from "./LiveMessageContainer";
+import LiveChat from "./LiveChat";
 
 
 const WatchPage = () => {
@@ -15,7 +16,7 @@ const WatchPage = () => {
    dispatch(closeMenu())
     },[dispatch])
   return (
-    <div className="px-36 flex pt-6">
+    <div className="px-28 flex pt-6">
     <div className="w-8/12">
       <iframe className="w-full rounded"
             width="1200"
