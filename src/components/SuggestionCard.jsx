@@ -10,9 +10,9 @@ const SuggestionCard = ({channelTitle,publishedTimeText,thumbnail,lengthText,tit
   </div>
    <ul className="pl-3 w-9/12">
    <li className="font-bold text-sm">{title}</li>
-   <li  className="text-zinc-600">{channelTitle}</li>
-   <li className="inline text-zinc-600">{formatter.format(viewCount)} views</li>
-   <li className="pl-3 inline text-zinc-600">{publishedTimeText}</li>
+   <li  className="text-zinc-600 font-semibold text-sm">{channelTitle}</li>
+   <li className="inline text-zinc-600 text-sm">{formatter.format(viewCount)} views</li>
+   <li className="pl-3 inline text-zinc-600 text-sm">{publishedTimeText}</li>
    </ul>
    </div>
 

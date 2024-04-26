@@ -5,9 +5,8 @@ export const LOGO =
 
 export const USER_ICON="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
 
-export const YOUTUBE_VIDEOS_API=
-"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&pageToken="  +
-"&regionCode=IN&key=" +
+export const YOUTUBE_VIDEOS_API=(token)=>
+"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&pageToken="  +token+"&maxResults=12&regionCode=IN&key=" +
 import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const YOUTUBE_RELATED_VIDEOS_ID_API=(videoId)=> 

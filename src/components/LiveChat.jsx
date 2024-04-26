@@ -22,27 +22,30 @@ const LiveChat = () => {
    setToggleChat(!toggleChat)
     }
   return (
-    <div className="bg-gray-400  flex flex-col items-center overflow-y-scroll h-1/2">
-      <strong className="text-center mx-auto">Live Chat</strong>
-   {toggleChat &&( <div className="5/6">
+    <div className="bg-gray-100  flex flex-col items-center rounded-md mb-16">
+      <strong className="text-center mx-auto py-2 border-b-2 border-gray-200 w-full">Live Chat</strong>
+   {toggleChat &&( <div className="w-5/6 overflow-y-scroll h-[350px]" >
       {
         message.map((item,index)=>(
-          <div key={index} className="flex shadow-lg bg-slate-50 rounded mb-4 ">
-            <img src={USER_ICON} alt="" className="w-2/12" />   
-            <div className="w-10/12">
-             <strong>{item.name}</strong>
-             <p>{item.message}</p> 
+          <div key={index} className="flex items-center shadow-lg bg-slate-50 rounded mb-4 ">
+            <img src={USER_ICON} alt="" className="w-8 h-8 mx-2" />   
+            <div className="">
+             <strong className="text-sm">{item.name}</strong>
+             <p className="text-sm">{item.message}</p> 
               </div>        
            </div>
         ))
       }
     </div>)
-}
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={inputMessage} placeholder="Say something..." className="rounded-lg" onChange={(e)=>setInputMessage(e.target.value)} />
-      <button type="submit">send</button>
+}   <form onSubmit={handleSubmit} className="w-full pl-10 py-4">
+  <div className="flex h-8 w-8">
+  <img src={USER_ICON} alt="" />
+     <h1>Pranjal Jaiswal </h1>
+     </div>
+      <input type="text" value={inputMessage} placeholder="Say something..." className="rounded-full px-3 py-2 border border-gray-200" onChange={(e)=>setInputMessage(e.target.value)} />
+      <button type="submit" className="py-1 px-3 border border-gray-300 ml-2 rounded-2xl hover:bg-gray-400">send</button>
     </form>
-    <button onClick={handleToggeleChat}>Hide Chat</button>
+    <button onClick={handleToggeleChat} className="font-bold texd-sm border-t-2 border-gray-200 w-full py-2">Hide Chat</button>
     </div>
  );
 };

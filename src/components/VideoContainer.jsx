@@ -13,16 +13,21 @@ const VideoContainer = () => {
   const [token, setToken] = useState("");
   const [page, setPage] = useState(1);
 
-  async function getVideos() {
+  
+  const getVideos =async()=> {
     try {
-      const response = await fetch(YOUTUBE_VIDEOS_API);
+      const response = await fetch(YOUTUBE_VIDEOS_API(token));
       const data = await response.json();
-      setVideoList(data.items);
-      setChannelId(data.items.map((item) => item.snippet.channelId));
+    
+      setVideoList([...videoList,...data.items]);
+      setChannelId(data.items.map((item) =>item.snippet.channelId));
+      setToken(data.nextPageToken)
     } catch (error) {
       console.log(error);
     }
   }
+
+
   useEffect(() => {
     getVideos();
   }, [page]);
@@ -31,9 +36,7 @@ const VideoContainer = () => {
     const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
     const data = await res.json();
     data.items &&
-      setChannelThumbnail(
-        data.items.map((item) => item.snippet.thumbnails.medium)
-      );
+      setChannelThumbnail([data.items.map((item) => item.snippet.thumbnails.medium)]);
   }, [channelId]);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const VideoContainer = () => {
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight;
       if (isbottom) {
-        setPage((page) => page + 1);
+        setPage((prevPage) => prevPage + 1);
       }
     }
     window.addEventListener("scroll", handleScoll);

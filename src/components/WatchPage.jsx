@@ -6,7 +6,7 @@ import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 import CommentContainer from "./CommentContainer";
 import SuggestionVideoContainer from "./SuggestionVideoContainer";
 import LiveMessageContainer from "./LiveMessageContainer";
-import LiveChat from "./LiveChat";
+
 
 
 const WatchPage = () => {
