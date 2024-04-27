@@ -1,8 +1,36 @@
-# React + Vite
+# feature 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- header
+  - Searchbar 
+   - user logo
+- body
+  - Sidebar
+     - MenuItems
 
-Currently, two official plugins are available:
+-MainContainer
+   - HomePage
+      - Videocard lis
+   - Watchpage
+      - Video box
+      - Recomendation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## task
+- setup tailwindcss
+- install reacticon
+- design header
+- design sidebar
+- button list in body
+- search suggestions setup
+- debouncing in search 
+- display card in body in main container by fetching the data
+- setup routing
+- design watchpage
+ - video body
+ - commet design
+ - infinite scroll in comment,and home page
+ - websocket calling 
+ - recommendation video design
+- button list below the video container
+- responsive 
+- siderbar as much page
+
