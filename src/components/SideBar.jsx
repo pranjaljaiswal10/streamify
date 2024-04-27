@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-const SideBar = () => {
+const SideBar = () => 
     const toggleBar=useSelector((store)=>store.menu.toggleMenu)
     const keyword=["Shpping","Music","Movies","Live","Gaming","Live","Gaming","News","Sport","Courses","Fashion & Beauty","Podcasts"]
   return (

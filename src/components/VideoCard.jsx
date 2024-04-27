@@ -1,15 +1,28 @@
+import moment from "moment";
+import { USER_ICON } from "../utils/constant";
+import { formatter, relativeTime } from "../utils/helper";
 
 
-const VideoCard = ({snippet,statistics}) => {
-    const {thumbnails:{medium},channelTitle,title}=snippet
+const VideoCard = ({snippet,statistics,contentDetails,thumbnail}) => {
+    const {thumbnails:{medium},channelTitle,title,publishedAt}=snippet
    const {viewCount}=statistics
-    console.log(snippet)
+   const duration=moment.duration( contentDetails.duration)
+   const {minutes,seconds,hours}=duration._data
+ 
   return  (
     <div className="shadow-lg p-2 m-2 w-72 ">
+      <div className="relative">
         <img src={medium.url} className="rounded-lg" alt="thumbnail" />
-        <h1 className="font-bold py-2"> {title}</h1>
-        <h2>{channelTitle}</h2>
-        <h3>{viewCount} views</h3>
+        <small className="absolute text-white bottom-3 right-2 font-semibold p-0.5 rounded bg-black">{hours?`${hours}:${minutes}${seconds}:`:`${minutes}:${seconds}`}</small>
+        </div>
+        <div className="flex">
+        <img src={thumbnail?thumbnail.url:USER_ICON} alt="" className="rounded-full h-fit w-2/12" />
+        <ul className="w-10/12 text-xs">
+        <li className="font-bold  py-2"> {title}</li>
+        <li>{channelTitle}</li>
+        <li>{`${formatter.format(viewCount)} views . ${relativeTime(publishedAt)}`  }</li>
+        </ul>
+        </div>
     </div>
   );
 };
