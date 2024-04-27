@@ -14,11 +14,11 @@ const VideoContainer = () => {
   const [page, setPage] = useState(1);
 
   
+  
   const getVideos =async()=> {
     try {
       const response = await fetch(YOUTUBE_VIDEOS_API(token));
       const data = await response.json();
-    
       setVideoList([...videoList,...data.items]);
       setChannelId(data.items.map((item) =>item.snippet.channelId));
       setToken(data.nextPageToken)
@@ -26,8 +26,6 @@ const VideoContainer = () => {
       console.log(error);
     }
   }
-
-
   useEffect(() => {
     getVideos();
   }, [page]);

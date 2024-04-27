@@ -7,33 +7,17 @@ import  CommentList from "./CommentList";
 const CommentContainer = ({videoId}) => {
   const [commentList,setCommetList]=useState([])
   const [isReplyVisible,setIsReplyVisible]=useState("")
-  const [nextToken,setNextToken]=useState("")
-  const [page,setPage]=useState(1)
-  const getCommentDetail=async()=>{
-    const response=await fetch(YOUTUBE_COMMENTS_API(videoId))
-    const data=await response.json()
-    setNextToken(data.nextPageToken)
-    console.log(data)
-    setCommetList(...commentList,...data.items)
-  }
   useEffect(()=>{
+    const getCommentDetail=async()=>{
+      const response=await fetch(YOUTUBE_COMMENTS_API(videoId))
+      const data=await response.json()
+      console.log(data)
+      setCommetList(data.items)
+    }
     getCommentDetail()
-  },[videoId,page])
+  },[videoId])
 
-useEffect(()=>{
- function handleScroll(){
-  const isBottom=window.innerHeight+window.scrollY>=document.documentElement.scrollHeight;
-  if(isBottom)
-  {
-    setPage(prevPage=>prevPage+1)
-  }
- }
 
- window.addEventListener("scroll",handleScroll)
- return ()=>{
-    window.addEventListener("scroll",handleScroll)
-  }
-},[])
 
 
 if(commentList.length==0) return null
