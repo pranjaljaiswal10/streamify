@@ -1,9 +1,13 @@
 import { useSelector } from "react-redux";
+import { categories } from "../utils/constant";
+import { Link } from "react-router-dom";
 
-const SideBar = () => 
-    const toggleBar=useSelector((store)=>store.menu.toggleMenu)
-    const keyword=["Shpping","Music","Movies","Live","Gaming","Live","Gaming","News","Sport","Courses","Fashion & Beauty","Podcasts"]
-  return (
+
+const SideBar = () => {
+    const toggleBar=useSelector((store)=>store.menu.isMenuOpen)
+    
+    
+    return (
     toggleBar && <div className="px-6 w-48  ">
     <div className="space-y-3 mt-4">
         <ul>
@@ -17,7 +21,11 @@ const SideBar = () =>
         <h1 className="font-bold text-xl">Explore</h1>
         <ul>
             {
-                keyword.map((item)=><li key={item} className="font-medium">item</li>)
+                categories.map((item)=>
+                <Link to={`/explore/${item}`} key={item}>
+                <li  className="font-medium">{item.icon}{item.name}</li>
+                </Link>
+                )
             }
         </ul>
     </div>

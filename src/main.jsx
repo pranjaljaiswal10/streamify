@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Body from './components/Body.jsx'
 import WatchPage from "./components/WatchPage.jsx"
+import ExploreComponent from './components/ExploreComponent.jsx'
 
 
 const router=createBrowserRouter([{
@@ -17,6 +18,9 @@ const router=createBrowserRouter([{
     },{
       path:"/watch",
       element:<WatchPage/>
+    },{
+      path:"/explore/:keyword",
+      element:<ExploreComponent/>
     }
   ]
 }])

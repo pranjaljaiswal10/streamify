@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { OPTIONS, YOUTUBE_RELATED_VIDEOS_ID_API } from "../utils/constant";
+import { RELATED_OPTIONS, YOUTUBE_RELATED_VIDEOS_ID_API } from "../utils/constant";
 import { Link, useSearchParams } from "react-router-dom";
 import SuggestionCard from "./SuggestionCard";
 
@@ -11,7 +11,7 @@ const SuggestionVideoContainer = () => {
     
  
     const getSuggestionVideo=async()=>{
-      const response=await fetch(YOUTUBE_RELATED_VIDEOS_ID_API(searchParams.get('v')),OPTIONS)
+      const response=await fetch(YOUTUBE_RELATED_VIDEOS_ID_API(searchParams.get('v')),RELATED_OPTIONS)
       const json=await response.json()
       console.log(json)
       setRelatedVideoIdList(json.data)
