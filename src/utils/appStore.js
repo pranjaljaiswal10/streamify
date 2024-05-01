@@ -6,7 +6,7 @@ import chatReducer from "./chatSlice"
 const appStore=configureStore({
     reducer:{
         menu:menuReducer,
-        search:searchReducer
+        search:searchReducer,
         chat:chatReducer,
     }
 })
