@@ -18,7 +18,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const searchCache = useSelector((store) => store.search);
+  const searchCache = useSelector((store) => store.search)
   const handleSearchClick=()=>{
    navigate(`result?search-query=${searchCache}`)
    setShowSuggestions(false)
@@ -52,7 +52,7 @@ const Header = () => {
     <div className="flex items-center justify-between px-6 py-1  m-2  shadow-lg">
       <div className="logo flex items-center cursor-pointer">
         <GiHamburgerMenu onClick={handleToggle} size={32} />
-        <img src={LOGO} alt="youtube-logo" className="h-12 mx-6" />
+        <img src={LOGO} alt="" className="h-12 mx-6" />
       </div>
       <div className="mx-6 w-1/2  ">
         <div>
@@ -80,7 +80,7 @@ const Header = () => {
             }}
           >
             {showSuggestions &&
-              searchCache?.results.map((item) => (
+              searchCache.results.map((item) => (
                 <Link to={`/result?search-query=${item}`} key={item}>
                   <li className="list-none pb-2">
                     {" "}

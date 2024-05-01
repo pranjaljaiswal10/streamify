@@ -34,13 +34,12 @@ export const YOUTUBE_SEARCH_API =(query)=>
 
 
 
-export const YOUTUBE_SEARCH_BY_KEYWORD =
-"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=";
-
-export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&sort_by=views"
 
 
-export const OPTIONS = {
+export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=views"
+
+
+export const SEARCH_OPTIONS = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'd27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5',

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { OPTIONS, YOUTUBE_SEARCH_VIDEO_API } from "../utils/constant";
+import {  SEARCH_OPTIONS, YOUTUBE_SEARCH_VIDEO_API } from "../utils/constant";
 import SearchCard from "./SearchCard";
 import { Link, useSearchParams} from "react-router-dom";
 
@@ -8,22 +8,24 @@ import { Link, useSearchParams} from "react-router-dom";
 const SearchContainer = () => {
     const [searchParams]=useSearchParams()
     const [searchList,setSearchList]=useState([])
-    let url=encodeURIComponent(searchParams.get("search-query"))
+    
+    
+    let searchQuery=encodeURIComponent(searchParams.get("search-query"))
     
     useEffect(()=>{
-    async function getSearchData(){
-     const response=await fetch(YOUTUBE_SEARCH_VIDEO_API(url),OPTIONS)
-     const data=await response.json()
-    console.log(data)
-    }
+      async function getSearchData(){
+       const response=await fetch(YOUTUBE_SEARCH_VIDEO_API(searchQuery),SEARCH_OPTIONS)
+       const json=await response.json()
+       setSearchList(json.data)
+      }
         getSearchData()
-    },[url])
+    },[searchQuery])
+
+    console.log(searchList)
   return ( 
-    searchList.map((item)=>
-    <Link to={`/watch?v=${item.id}`} key={item.id}>
-    <SearchCard   {...item}/>
-    </Link>
-)
+    searchList.filter((item)=>item.type==="video").map((item)=>
+    <Link to={`/watch?v=${item.videoId}`} key={item.videoId}> <SearchCard {...item}/></Link>
+ )
   );
 };
 
