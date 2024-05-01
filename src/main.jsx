@@ -6,6 +6,7 @@ import Layout from './Layout.jsx'
 import Body from './components/Body.jsx'
 import WatchPage from "./components/WatchPage.jsx"
 import SearchContainer from './components/SearchContainer.jsx'
+import ExploreComponent from './components/ExploreComponent.jsx'
 
 
 const router=createBrowserRouter([{
@@ -21,6 +22,9 @@ const router=createBrowserRouter([{
     },{
       path:"/result",
       element:<SearchContainer/>
+    },{
+      path:"/explore/:keyword",
+      element:<ExploreComponent/>
     }
   ]
 }])

@@ -29,10 +29,6 @@ export  const SUGGESTION_OPTION= {
     }
   };
 
-export const YOUTUBE_SEARCH_API =(query)=>
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="+query
-
-
 
 
 

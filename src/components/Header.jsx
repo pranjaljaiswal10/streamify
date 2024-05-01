@@ -49,10 +49,13 @@ const Header = () => {
   console.log(searchCache);
 
   return (
-    <div className="flex items-center justify-between px-6 py-1  m-2  shadow-lg">
+    <nav className="flex items-center justify-between px-6 py-1 st m-2  shadow-lg">
       <div className="logo flex items-center cursor-pointer">
-        <GiHamburgerMenu onClick={handleToggle} size={32} />
-        <img src={LOGO} alt="" className="h-12 mx-6" />
+        
+        <GiHamburgerMenu onClick={handleToggle} size={32}/>
+        <Link to="/">
+        <img src={LOGO} alt="youtube-logo" className="h-12 mx-6" />
+        </Link>
       </div>
       <div className="mx-6 w-1/2  ">
         <div>
@@ -94,7 +97,7 @@ const Header = () => {
       <div className="cursor-pointer">
         <FaUserCircle size={32} />
       </div>
-    </div>
+    </nav>
   );
 };
 

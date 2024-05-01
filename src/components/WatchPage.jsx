@@ -4,6 +4,9 @@ import { useSearchParams} from "react-router-dom";
 import { closeMenu } from "../utils/menuSlice";
 import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 import CommentContainer from "./CommentContainer";
+import SuggestionVideoContainer from "./SuggestionVideoContainer";
+import LiveMessageContainer from "./LiveMessageContainer";
+
 
 
 const WatchPage = () => {
@@ -13,7 +16,7 @@ const WatchPage = () => {
    dispatch(closeMenu())
     },[dispatch])
   return (
-    <div className="px-44 flex pt-6">
+    <div className="px-28 flex pt-6">
     <div className="w-8/12">
       <iframe className="w-full rounded"
             width="1200"
@@ -26,8 +29,9 @@ const WatchPage = () => {
        <WatchVideoDetailContainer videoId={searchParams.get("v")} />
        <CommentContainer videoId={searchParams.get("v")}/>
        </div> 
-       <div className="w-/12">
-        live-comment
+       <div className="w-4/12 pl-5">
+        <LiveMessageContainer/>
+        <SuggestionVideoContainer/>
        </div>
     </div>
   );
