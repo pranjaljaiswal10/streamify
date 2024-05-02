@@ -38,22 +38,18 @@ export const YOUTUBE_VIDEO_DETAILS_API = (videoId) =>
   "&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_SEARCH_API =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=views"
 
-export const YOUTUBE_SEARCH_VIDEO_API = (videoIdList) =>
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
-  videoIdList.toString() +
-  "&key=" +
-  import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_SEARCH_VIDEO_ID_API = (search, nextToken) =>
-  "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=" +
-  search +
-  "&pageToken=" +
-  nextToken +
-  "&type=video&fields=items%28id%28videoId%29%2C+snippet%28description%29%29%2CnextPageToken%2CpageInfo&key=" +
-  import.meta.env.VITE_GOOGLE_API_KEY;
+  export const SEARCH_OPTIONS = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'd27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5',
+      'X-RapidAPI-Host': 'yt-api.p.rapidapi.com'
+    }
+  };
+  
+
 
 export const YOUTUBE_CHANNEL_DETAILS_API = (channelId) =>
   "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=" +
@@ -87,4 +83,13 @@ export const KEYWORD_OPTIONS = {
 		'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
 	}
 };
+
+export  const  SEARCH_SUGGESTION_API= (query)=>'https://youtube-data8.p.rapidapi.com/auto-complete/?q='+query+'&hl=en&gl=IN';
+export  const SUGGESTION_OPTION= {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'd27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5',
+      'X-RapidAPI-Host': 'youtube-data8.p.rapidapi.com'
+    }
+  };
 

@@ -8,9 +8,7 @@ import { Link, useSearchParams} from "react-router-dom";
 const SearchContainer = () => {
     const [searchParams]=useSearchParams()
     const [searchList,setSearchList]=useState([])
-    
-    
-    let searchQuery=encodeURIComponent(searchParams.get("search-query"))
+    const  searchQuery=encodeURIComponent(searchParams.get("search-query"))
     
     useEffect(()=>{
       async function getSearchData(){

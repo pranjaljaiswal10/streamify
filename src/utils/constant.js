@@ -8,12 +8,6 @@ export const YOUTUBE_VIDEOS_API=
 "&regionCode=IN&key=" +
 import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&relatedToVideoId=" +
-  videoId +
-  "&type=video&key=" +
-  import.meta.env.VITE_GOOGLE_API_KEY;
-
   export const YOUTUBE_VIDEO_DETAILS_API = (videoId) =>
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
   videoId +
@@ -28,6 +22,17 @@ export  const SUGGESTION_OPTION= {
       'X-RapidAPI-Host': 'youtube-data8.p.rapidapi.com'
     }
   };
+
+  export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
+  "https://yt-api.p.rapidapi.com/related?id=" + videoId;
+
+export const RELATED_OPTIONS = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "d27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5",
+    "X-RapidAPI-Host": "yt-api.p.rapidapi.com",
+  },
+};
 
 
 

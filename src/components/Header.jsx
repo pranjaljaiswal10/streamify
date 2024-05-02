@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   LOGO,
   SEARCH_SUGGESTION_API,
@@ -18,27 +18,29 @@ const Header = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggestionList,setSuggestionList]=useState(null)
   const searchCache = useSelector((store) => store.search)
   const handleSearchClick=()=>{
    navigate(`result?search-query=${searchCache}`)
    setShowSuggestions(false)
   }
+  const getSuggestion =useCallback(async () => {
+    const response = await fetch(
+      SEARCH_SUGGESTION_API(searchQuery),
+      SUGGESTION_OPTION
+    );
+    const data = await response.json();
+    setSuggestionList(data)
+    searchCache==searchQuery &&dispatch(addData(suggestionList));
+  },[searchCache])
   useEffect(() => {
-    const getSuggestion = async () => {
-      const response = await fetch(
-        SEARCH_SUGGESTION_API(searchQuery),
-        SUGGESTION_OPTION
-      );
-      const data = await response.json();
-      dispatch(addData(data));
-    };
     let timerId = setTimeout(() => {
       getSuggestion();
     }, 600);
     return () => {
       clearTimeout(timerId);
     };
-  }, [searchQuery, dispatch]);
+  }, [getSuggestion]);
 
   const handleSearchchange = (e) => {
     setSearchQuery(e.target.value);
@@ -83,7 +85,7 @@ const Header = () => {
             }}
           >
             {showSuggestions &&
-              searchCache.results.map((item) => (
+              suggestionList.results.map((item) => (
                 <Link to={`/result?search-query=${item}`} key={item}>
                   <li className="list-none pb-2">
                     {" "}
