@@ -11,24 +11,35 @@ const VideoContainer = () => {
   const [channelId, setChannelId] = useState([]);
   const [channelThumbnail, setChannelThumbnail] = useState([]);
   const [token, setToken] = useState("");
-  const [page, setPage] = useState(1);
-
   
   
-  const getVideos =async()=> {
+  const getVideos =useCallback(async()=> {
     try {
       const response = await fetch(YOUTUBE_VIDEOS_API(token));
       const data = await response.json();
-      setVideoList([...videoList,...data.items]);
-      setChannelId(data.items.map((item) =>item.snippet.channelId));
+      setVideoList(prevVideoList=>[...prevVideoList,...data.items]);
+      setChannelId(prevChannel=>[...prevChannel,...data.items.map((item) =>item.snippet.channelId)]);
       setToken(data.nextPageToken)
     } catch (error) {
       console.log(error);
     }
-  }
+  },[token])
   useEffect(() => {
-    getVideos();
-  }, [page]);
+  async function getFirstPageVideo(){
+     try{
+    const response=await fetch(YOUTUBE_VIDEOS_API())
+     const data=await response.json()
+     console.log(data)
+     setVideoList(data.items)
+     setToken(data.nextPageToken);
+     setChannelId(data.items.map((item) =>item.snippet.channelId))
+    }catch(error){
+      console.log(error)
+      }
+  }
+    getFirstPageVideo();
+  }, []);
+
 
   const getChannelDetail = useCallback(async () => {
     const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
@@ -47,7 +58,7 @@ const VideoContainer = () => {
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight;
       if (isbottom) {
-        setPage((prevPage) => prevPage + 1);
+       getVideos()
       }
     }
     window.addEventListener("scroll", handleScoll);
@@ -56,9 +67,9 @@ const VideoContainer = () => {
     };
   }, []);
 
-  // console.log(videoList)
+  console.log(videoList)
   return (
-    <div className="mx-4 flex flex-wrap">
+    <div className="flex flex-wrap">
       {videoList.map((item, index) => (
         <Link to={`/watch?v=${item.id}`} key={item.id}>
           <VideoCard {...item} thumbnail={channelThumbnail[index]} />

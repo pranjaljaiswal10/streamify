@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { KEYWORD_OPTIONS, YOUTUBE_SEARCH_BY_KEYWORD } from "../utils/constant";
+import {  SEARCH_OPTIONS, YOUTUBE_KEYWORD_VIDEO_API  } from "../utils/constant";
 import ExploreCard from "./ExploreCard";
 
 
 const ExploreComponent = () => {
     const {keyword}=useParams()
-    const [videoList,setVideoList]=useState(null)
+    console.log(keyword)
+    const [videoList,setVideoList]=useState([])
     useEffect(()=>{
         async function getKeywordVideo(){
-            const response=await fetch(YOUTUBE_SEARCH_BY_KEYWORD(keyword),KEYWORD_OPTIONS)
-            const data=await response.json()
-            setVideoList(data)
+            const response=await fetch(YOUTUBE_KEYWORD_VIDEO_API(keyword),SEARCH_OPTIONS)
+            const json=await response.json()
+            setVideoList(json.data)
         }
      getKeywordVideo()
     },[keyword])
+
+    console.log(videoList)
   return (
-    videoList.map((item)=><Link to={`/watch?v=${item.videoId}`} key={item.id}>
+    <div className="flex flex-wrap">
+  {  videoList.filter((item)=>item.type==="video" &&item.isLive!==true).map((item)=>
+    <Link to={`/watch?v=${item.videoId}`} key={item.videoId}>
         <ExploreCard {...item}/>
     </Link>)
+}
+    </div>
   );
 };
 

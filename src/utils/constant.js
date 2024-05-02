@@ -1,18 +1,27 @@
 export const LOGO =
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF68guDqYDnuB3q66g5D8QWPHUWveqth6NHrqkoZRVqUXjqoseolP1W4JWHxVOe11FzLc&usqp=CAU"
 
+
+export const LIVE_CHAT_COUNT = 10;
+
 export const USER_ICON="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
 
-export const YOUTUBE_VIDEOS_API=
-"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&pageToken="  +
-"&regionCode=IN&key=" +
+export const YOUTUBE_VIDEOS_API=(nextPageToken)=>
+"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&"+(nextPageToken?"pageToken="+nextPageToken+"&":"")+"maxResults=12&regionCode=IN&key=" +
 import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&relatedToVideoId=" +
-  videoId +
-  "&type=video&key=" +
-  import.meta.env.VITE_GOOGLE_API_KEY;
+  "https://yt-api.p.rapidapi.com/related?id=" + videoId;
+
+export const RELATED_OPTIONS = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "d27d97cbafmshd7a8e843a27b5d3p113a7ajsn7b491f464de5",
+    "X-RapidAPI-Host": "yt-api.p.rapidapi.com",
+  },
+};
+
+
 
   export const YOUTUBE_VIDEO_DETAILS_API = (videoId) =>
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=" +
@@ -33,6 +42,7 @@ export  const SUGGESTION_OPTION= {
 
 
 export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=views"
+export const YOUTUBE_KEYWORD_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=date"
 
 
 export const SEARCH_OPTIONS = {

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
-import Body from './components/Body.jsx'
 import WatchPage from "./components/WatchPage.jsx"
 import SearchContainer from './components/SearchContainer.jsx'
 import ExploreComponent from './components/ExploreComponent.jsx'
+import MainContainer from './components/MainContainer.jsx'
 
 
 const router=createBrowserRouter([{
@@ -15,7 +15,7 @@ const router=createBrowserRouter([{
   children:[
     {
       path:"/",
-      element:<Body/>
+      element:<MainContainer/>
     },{
       path:"/watch",
       element:<WatchPage/>

@@ -1,3 +1,4 @@
+import { formatter } from "../utils/helper";
 
 
 const SearchCard = ({channelThumbnail,lengthText,channelTitle,description,publishedTimeText,title,thumbnail,viewCount}) => {
@@ -10,8 +11,7 @@ const SearchCard = ({channelThumbnail,lengthText,channelTitle,description,publis
 <div className="text-sm space-y-2 w-9/12 pl-4">
   <strong>{title}</strong>
   <div className="pt-0">
-  <span>views</span>
-  <span className="pl-2">{publishedTimeText}</span>
+  <span className="pl-2">{`${formatter.format(viewCount)} views ${publishedTimeText}`}</span>
   </div>
   <div className="flex items-center">
   <img src={channelThumbnail[0].url} className="rounded-full h-12 w-12" alt="" />
