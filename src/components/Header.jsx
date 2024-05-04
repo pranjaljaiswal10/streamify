@@ -83,13 +83,12 @@ const Header = () => {
             }}
           >
             {showSuggestions &&
-              searchCache.results.map((item) => (
-                <Link to={`/result?search-query=${item}`} key={item}>
-                  <li className="list-none pb-2">
-                    {" "}
+              searchCache?.results.map((item) => (
+                <li className="list-none pb-2"  key={item}>
+                    <Link to={`/result?search-query=${item}`}>
                     <FcSearch className="inline" /> {item}
+                   </Link>
                   </li>
-                </Link>
               ))}
           </ul>
         </div>

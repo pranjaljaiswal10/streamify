@@ -13,7 +13,6 @@ const SuggestionVideoContainer = () => {
     const getSuggestionVideo=async()=>{
       const response=await fetch(YOUTUBE_RELATED_VIDEOS_ID_API(searchParams.get('v')),RELATED_OPTIONS)
       const json=await response.json()
-      console.log(json)
       setRelatedVideoIdList(json.data)
     }
     getSuggestionVideo(searchParams.get("v"))
@@ -21,7 +20,7 @@ const SuggestionVideoContainer = () => {
 
   
 if(!relatedVideoIdList) return
-console.log(relatedVideoIdList)
+
   return (<>
     {
       

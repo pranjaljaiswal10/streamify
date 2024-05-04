@@ -11,7 +11,7 @@ const VideoContainer = () => {
   const [channelId, setChannelId] = useState([]);
   const [channelThumbnail, setChannelThumbnail] = useState([]);
   const [token, setToken] = useState("");
-  
+ 
   
   const getVideos =useCallback(async()=> {
     try {
@@ -24,15 +24,17 @@ const VideoContainer = () => {
       console.log(error);
     }
   },[token])
+  
+  
   useEffect(() => {
   async function getFirstPageVideo(){
      try{
     const response=await fetch(YOUTUBE_VIDEOS_API())
      const data=await response.json()
-     console.log(data)
      setVideoList(data.items)
      setToken(data.nextPageToken);
      setChannelId(data.items.map((item) =>item.snippet.channelId))
+     console.log(data)
     }catch(error){
       console.log(error)
       }
@@ -45,7 +47,7 @@ const VideoContainer = () => {
     const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
     const data = await res.json();
     data.items &&
-      setChannelThumbnail([data.items.map((item) => item.snippet.thumbnails.medium)]);
+      setChannelThumbnail(prevThumbnail=>[...prevThumbnail,...data.items.map((item) => item.snippet.thumbnails.medium)]);
   }, [channelId]);
 
   useEffect(() => {
@@ -65,7 +67,7 @@ const VideoContainer = () => {
     return () => {
       window.removeEventListener("scroll", handleScoll);
     };
-  }, []);
+  }, [getVideos]);
 
   console.log(videoList)
   return (

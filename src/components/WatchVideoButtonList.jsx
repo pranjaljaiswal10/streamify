@@ -30,7 +30,7 @@ const WatchVideoButtonList = ({ channelId, likeCount }) => {
       <strong>{snippet.title}</strong>
        <small className="block">{formatter.format(statistics.subscriberCount)} subscribers</small>
        </div>
-      <button className=" bg-black px-3 py-1 rounded-full text-white">Subscribe</button>
+      <button className=" bg-black px-3 py-1 rounded-full text-white hover:bg-slate-900">Subscribe</button>
       </div>
       <ul className="flex font-bold my-4">
         <li className="p-2 bg-slate-100 hover:bg-slate-300 cursor-pointer ml-3 rounded-full">

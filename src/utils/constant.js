@@ -42,7 +42,7 @@ export  const SUGGESTION_OPTION= {
 
 
 export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=views"
-export const YOUTUBE_KEYWORD_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=date"
+export const YOUTUBE_KEYWORD_VIDEO_API= (query,token) => "https://yt-api.p.rapidapi.com/search?query="+query+(token?"&token="+token:"")+"&geo=IN&type=video&sort_by=date"
 
 
 export const SEARCH_OPTIONS = {
@@ -60,8 +60,8 @@ export const YOUTUBE_CHANNEL_DETAILS_API = (channelId) =>
   "&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_COMMENTS_API = (videoId) =>
-  "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&videoId=" +
+export const YOUTUBE_COMMENTS_API = (videoId,token) =>
+  "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&"+(token?"pageToken="+token:"")+"&videoId=" +
   videoId +
   "&prettyPrint=true&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;

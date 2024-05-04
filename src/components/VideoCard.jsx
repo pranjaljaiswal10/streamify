@@ -13,7 +13,7 @@ const VideoCard = ({snippet,statistics,contentDetails,thumbnail}) => {
     <div className="shadow-lg p-2 m-2 w-72 ">
       <div className="relative">
         <img src={medium.url} className="rounded-lg" alt={title} />
-        <small className="absolute text-white bottom-3 right-2 font-semibold p-0.5 rounded bg-black">{hours?`${hours}:${minutes}${seconds}:`:`${minutes}:${seconds}`}</small>
+        <small className="absolute text-white bottom-3 right-2 font-semibold p-0.5 rounded bg-black opacity-70">{hours?`${hours}:${minutes}${seconds}:`:`${minutes}:${seconds}`}</small>
         </div>
         <div className="flex">
         <img src={thumbnail?thumbnail.url:USER_ICON} alt="" className="rounded-full h-fit w-2/12" />

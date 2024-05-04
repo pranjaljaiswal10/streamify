@@ -33,7 +33,7 @@ const {snippet,statistics}=videoDetail
   <h1 className="font-bold text-lg py-3">{snippet.title}</h1>
   <WatchVideoButtonList channelId={snippet.channelId} {...statistics}/>
   <WatchvideoDescription  {...snippet} {...statistics} />
-  <span className="py-6">{formatter.format(statistics.commentCount)} Comments</span>
+  <span className="my-6 font-bold text-xl">{formatter.format(statistics.commentCount)} Comments</span>
  
     </>
   );

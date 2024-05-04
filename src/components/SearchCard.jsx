@@ -5,7 +5,7 @@ const SearchCard = ({channelThumbnail,lengthText,channelTitle,description,publis
   console.log(thumbnail)
   return (<div className="flex py-2">
     <div className="relative w-3/12">
-<img src={thumbnail[0].url} className="w-full" alt="" />
+<img src={thumbnail[0].url} className="w-full rounded-lg" alt="" />
 <small className="absolute bottom-1 right-1 bg-black text-white p-0.5 rounded-sm">{lengthText}</small>
 </div>
 <div className="text-sm space-y-2 w-9/12 pl-4">
