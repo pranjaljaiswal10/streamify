@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <Provider store={appStore}>
       <Header />
-      <div className="flex">
+      <div className="flex">   
       <SideBar/>
       <Outlet />
       </div>

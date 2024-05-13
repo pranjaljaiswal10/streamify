@@ -49,7 +49,7 @@ const ExploreComponent = () => {
   return (
     <div className="flex flex-wrap">
       {videoList
-        .filter((item) => item.type === "video" && item.isLive !== true)
+        .filter((item) => item.type === "video" && item.isLive !== true && item.title.includes("LIVE"||"live")===false)
         .map((item) => (
           <Link to={`/watch?v=${item.videoId}`} key={item.videoId}>
             <ExploreCard {...item} />

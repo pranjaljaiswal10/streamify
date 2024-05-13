@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   LOGO,
-  SEARCH_SUGGESTION_API,
-  SUGGESTION_OPTION,
+  SEARCH_SUGGESTION_API
 } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/menuSlice";
@@ -17,28 +16,42 @@ const Header = () => {
   const navigate=useNavigate();
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
+  const [suggestionList,setSuggestionsList]=useState(null)
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchCache = useSelector((store) => store.search)
   const handleSearchClick=()=>{
    navigate(`result?search-query=${searchCache}`)
    setShowSuggestions(false)
   }
+  const getSuggestion = async () => {
+    const response = await fetch(
+      SEARCH_SUGGESTION_API(searchQuery)
+    );
+    const data = await response.json();
+    setSuggestionsList(data)
+    dispatch(addData({
+      [searchQuery]:data[1]
+    }))
+  };
   useEffect(() => {
-    const getSuggestion = async () => {
-      const response = await fetch(
-        SEARCH_SUGGESTION_API(searchQuery),
-        SUGGESTION_OPTION
-      );
-      const data = await response.json();
-      dispatch(addData(data));
-    };
     let timerId = setTimeout(() => {
-      getSuggestion();
+      getSuggestion(searchQuery);
     }, 600);
     return () => {
       clearTimeout(timerId);
     };
   }, [searchQuery, dispatch]);
+
+useEffect(()=>{
+  if(searchCache[searchQuery])
+    {
+      setSuggestionsList(searchCache[searchQuery])
+    }
+    else{
+      getSuggestion()
+    }
+},[searchCache,searchQuery,getSuggestion])
+
 
   const handleSearchchange = (e) => {
     setSearchQuery(e.target.value);
@@ -49,7 +62,9 @@ const Header = () => {
   console.log(searchCache);
 
   return (
-    <nav className="flex items-center justify-between px-6 py-1 st m-2  shadow-lg">
+
+    <nav className="flex items-center  w-full justify-between px-6 py-1 st m-2  shadow-lg">
+  
       <div className="logo flex items-center cursor-pointer">
         
         <GiHamburgerMenu onClick={handleToggle} size={32}/>
@@ -82,8 +97,8 @@ const Header = () => {
               setShowSuggestions(false);
             }}
           >
-            {showSuggestions &&
-              searchCache?.results.map((item) => (
+           {showSuggestions &&
+              suggestionList.map((item) => (
                 <li className="list-none pb-2"  key={item}>
                     <Link to={`/result?search-query=${item}`}>
                     <FcSearch className="inline" /> {item}

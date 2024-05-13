@@ -11,67 +11,66 @@ const VideoContainer = () => {
   const [channelId, setChannelId] = useState([]);
   const [channelThumbnail, setChannelThumbnail] = useState([]);
   const [token, setToken] = useState("");
- 
-  
-  const getVideos =useCallback(async()=> {
-    try {
-      const response = await fetch(YOUTUBE_VIDEOS_API(token));
-      const data = await response.json();
-      setVideoList(prevVideoList=>[...prevVideoList,...data.items]);
-      setChannelId(prevChannel=>[...prevChannel,...data.items.map((item) =>item.snippet.channelId)]);
-      setToken(data.nextPageToken)
-    } catch (error) {
-      console.log(error);
-    }
-  },[token])
   
   
-  useEffect(() => {
-  async function getFirstPageVideo(){
-     try{
-    const response=await fetch(YOUTUBE_VIDEOS_API())
-     const data=await response.json()
-     setVideoList(data.items)
-     setToken(data.nextPageToken);
-     setChannelId(data.items.map((item) =>item.snippet.channelId))
-     console.log(data)
-    }catch(error){
-      console.log(error)
-      }
-  }
-    getFirstPageVideo();
-  }, []);
-
-
+  // useEffect(() => {
+  //   async function getFirstPageVideo(){
+  //     try{
+  //       const response=await fetch(YOUTUBE_VIDEOS_API())
+  //       const data=await response.json()
+  //       setVideoList(data.items)
+  //       setToken(data.nextPageToken);
+  //       setChannelId(data.items.map((item) =>item.snippet.channelId))
+  //       console.log(data)
+  //     }catch(error){
+  //       console.log(error)
+  //     }
+  //   }
+  //   getFirstPageVideo();
+  // }, []);
+  
   const getChannelDetail = useCallback(async () => {
     const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
     const data = await res.json();
     data.items &&
-      setChannelThumbnail(prevThumbnail=>[...prevThumbnail,...data.items.map((item) => item.snippet.thumbnails.medium)]);
+    setChannelThumbnail(prevThumbnail=>[...prevThumbnail,...data.items.map((item) => item.snippet.thumbnails.medium)]);
   }, [channelId]);
-
+  
   useEffect(() => {
     getChannelDetail();
   }, [getChannelDetail]);
+  
+  const getVideos =async()=> {
+    try {
+      const response = await fetch(YOUTUBE_VIDEOS_API(token));
+      const data = await response.json();
+      let list=data.items
+      setVideoList(prevVideoList=>[...prevVideoList,...list]);
+      setChannelId(prevChannel=>[...prevChannel,...data.items.map((item) =>item.snippet.channelId)]);
+      setToken(data.nextPageToken)
+      console.log(data.nextPageToken)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     function handleScoll() {
       const isbottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight;
+      window.innerHeight + window.scrollY>= document.documentElement.scrollHeight;
       if (isbottom) {
-       getVideos()
-      }
+        getVideos()
+        }
     }
     window.addEventListener("scroll", handleScoll);
     return () => {
       window.removeEventListener("scroll", handleScoll);
     };
-  }, [getVideos]);
-
-  console.log(videoList)
+  }, []);
+  
+  if(!videoList) return ;
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap ">
       {videoList.map((item, index) => (
         <Link to={`/watch?v=${item.id}`} key={item.id}>
           <VideoCard {...item} thumbnail={channelThumbnail[index]} />
