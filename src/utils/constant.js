@@ -7,7 +7,7 @@ export const LIVE_CHAT_COUNT = 10;
 export const USER_ICON="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png"
 
 export const YOUTUBE_VIDEOS_API=(nextPageToken)=>
-"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&"+"maxResults=12&"+(nextPageToken?("pageToken="+nextPageToken):"")+"&regionCode=IN&key=" +
+"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&pageToken="+nextPageToken+"&regionCode=IN&key=" +
 import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const YOUTUBE_RELATED_VIDEOS_ID_API = (videoId) =>
@@ -55,7 +55,7 @@ export const YOUTUBE_CHANNEL_DETAILS_API = (channelId) =>
   import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const YOUTUBE_COMMENTS_API = (videoId,token) =>
-  "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&"+(token?"pageToken="+token:"")+"&videoId=" +
+"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&pageToken="+token+"&videoId=" +
   videoId +
   "&prettyPrint=true&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;

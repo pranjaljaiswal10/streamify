@@ -62,7 +62,7 @@ const SideBar = () => {
       <div className="pt-2 mt-4">
         {toggleBar && <span className="font-bold text-xl ml-3">Explore</span>}
         <ul className="text-sm space-y-3">
-          {categories.map((item) => (
+          {toggleBar && categories.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={`/explore/${item.name}`}

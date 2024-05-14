@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSearchParams} from "react-router-dom";
 import { closeMenu } from "../utils/menuSlice";
@@ -10,6 +10,21 @@ import LiveMessageContainer from "./LiveMessageContainer";
 
 
 const WatchPage = () => {
+   const [isOnline,setIsOnline]=useState(false)
+   useEffect(()=>{
+   function handleOnline(){
+    setIsOnline(true)
+   }
+   function handleOffline(){
+    setIsOnline(false)
+   }
+   window.addEventListener("online",handleOnline)
+   window.addEventListener("offline",handleOffline)
+  return ()=>{
+  window.removeEventListener("online",handleOffline)
+  window.removeEventListener("offline",handleOffline)
+  }
+   },[])
     const [searchParams]=useSearchParams()
     const dispatch=useDispatch()
     useEffect(()=>{
@@ -30,7 +45,7 @@ const WatchPage = () => {
        <CommentContainer videoId={searchParams.get("v")}/>
        </div> 
        <div className="w-4/12 pl-5">
-        <LiveMessageContainer/>
+        {isOnline &&<LiveMessageContainer/>}
         <SuggestionVideoContainer/>
        </div>
     </div>

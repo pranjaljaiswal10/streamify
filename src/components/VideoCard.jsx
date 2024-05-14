@@ -6,9 +6,8 @@ import { formatter, relativeTime } from "../utils/helper";
 const VideoCard = ({snippet,statistics,contentDetails,thumbnail}) => {
     const {thumbnails:{medium},channelTitle,title,publishedAt}=snippet
    const {viewCount}=statistics
-   const duration=moment.duration( contentDetails.duration)
+   const duration=moment.duration(contentDetails.duration)
    const {minutes,seconds,hours}=duration._data
- 
   return  (
     <div className="shadow-lg p-2 m-2 w-72 ">
       <div className="relative">
