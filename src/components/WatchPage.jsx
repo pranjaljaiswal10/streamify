@@ -21,7 +21,7 @@ const WatchPage = () => {
    window.addEventListener("online",handleOnline)
    window.addEventListener("offline",handleOffline)
   return ()=>{
-  window.removeEventListener("online",handleOffline)
+  window.removeEventListener("online",handleOnline)
   window.removeEventListener("offline",handleOffline)
   }
    },[])
@@ -45,7 +45,7 @@ const WatchPage = () => {
        <CommentContainer videoId={searchParams.get("v")}/>
        </div> 
        <div className="w-4/12 pl-5">
-        {isOnline &&<LiveMessageContainer/>}
+        {isOnline && <LiveMessageContainer/>}
         <SuggestionVideoContainer/>
        </div>
     </div>

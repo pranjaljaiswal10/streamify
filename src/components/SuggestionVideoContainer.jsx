@@ -21,11 +21,13 @@ const SuggestionVideoContainer = () => {
     getSuggestionVideo(searchParams.get("v"));
   }, [searchParams]);
 
+console.log(relatedVideoIdList)
+
   if (!relatedVideoIdList) return;
 
   return (
     <>
-      {relatedVideoIdList.map((item) => (
+      {relatedVideoIdList.filter((item)=>item.type==="video").map((item) => (
         <Link to={`/watch?v=${item.videoId}`} key={item.videoId}>
           <SuggestionCard {...item} />
         </Link>

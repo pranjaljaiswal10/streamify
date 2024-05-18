@@ -26,7 +26,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="ml-6 mr-10">
+    <div className="ml-6 mr-10 fixed">
       <ul className="space-y-3 mt-4 text-sm">
         <li>
           <NavLink

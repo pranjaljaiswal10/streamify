@@ -44,7 +44,7 @@ const Header = () => {
       return () => {
         clearTimeout(timerId);
       };
-  }, [searchQuery]);
+  }, [searchQuery,searchCache]);
 
   const handleSearchchange = (e) => {
     setSearchQuery(e.target.value);
@@ -54,7 +54,9 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center  w-full justify-between px-6 py-1 st m-2  shadow-lg">
+    <>
+    
+      <nav className="flex  items-center   w-full justify-between px-6 py-1 st m-2  shadow-lg">
       <div className="logo flex items-center cursor-pointer">
         <GiHamburgerMenu onClick={handleToggle} size={32} />
         <Link to="/">
@@ -62,7 +64,6 @@ const Header = () => {
         </Link>
       </div>
       <div className="mx-6 w-1/2  ">
-        <div>
           <input
             type="text "
             className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full"
@@ -71,8 +72,8 @@ const Header = () => {
             placeholder="Search...."
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
-            onMouseEnter={() => setShowSuggestions(true)}
-            onMouseLeave={() => setShowSuggestions(false)}
+            // onMouseEnter={() => setShowSuggestions(true)}
+            // onMouseLeave={() => setShowSuggestions(false)}
           />
           <button
             className="border border-gray-400 px-5 py-2 rounded-r-full bg-gray-100"
@@ -81,7 +82,7 @@ const Header = () => {
             🔍
           </button>
           <ul
-            className="fixed z-10 bg-slate-50 w-1/4"
+            className="fixed z-20 bg-slate-50 w-1/4"
             onMouseEnter={() => {
               setShowSuggestions(true);
             }}
@@ -91,19 +92,21 @@ const Header = () => {
           >
             {showSuggestions &&
               suggestionList.map((item) => (
-                <li className="list-none pb-2" key={item}>
-                  <Link to={`/result?search-query=${item}`}>
+                  <Link to={`/result?search-query=${item}`}  key={item}>
+                <li className="list-none pb-2">
                     <FcSearch className="inline" /> {item}
-                  </Link>
                 </li>
+                  </Link>
               ))}
           </ul>
-        </div>
+      
       </div>
       <div className="cursor-pointer">
         <FaUserCircle size={32} />
       </div>
-    </nav>
+      </nav>
+    
+    </>
   );
 };
 

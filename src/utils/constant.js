@@ -54,8 +54,8 @@ export const YOUTUBE_CHANNEL_DETAILS_API = (channelId) =>
   "&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
 
-export const YOUTUBE_COMMENTS_API = (videoId,token) =>
-"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&pageToken="+token+"&videoId=" +
+export const YOUTUBE_COMMENTS_API = (videoId) =>
+"https://www.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&pageToken=&videoId=" +
   videoId +
   "&prettyPrint=true&key=" +
   import.meta.env.VITE_GOOGLE_API_KEY;
