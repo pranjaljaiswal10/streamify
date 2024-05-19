@@ -18,7 +18,7 @@ const ExploreCard = ({
       <div className="flex">
         <img src={channelThumbnail[0].url} className="rounded-full h-fit w-2/12" alt="" />
         <ul className="w-10/12 text-xs">
-          <li className="font-bold py-2">{title}</li>
+          <li className="font-bold py-2 truncate">{title}</li>
           <li className="text-zinc-700 font-semibold">{channelTitle}</li>
           <li className="inline text-zinc-600 font-semibold">{`${formatter.format(
             viewCount

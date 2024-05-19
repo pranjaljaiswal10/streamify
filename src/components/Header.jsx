@@ -16,7 +16,7 @@ const Header = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchCache = useSelector((store) => store.search);
   const handleSearchClick = () => {
-    navigate(`result?search-query=${searchCache}`);
+    navigate(`result?search-query=${searchQuery}`);
     setShowSuggestions(false);
   };
   const getSuggestion=async()=>{
@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <>
     
-      <nav className="flex  items-center   w-full justify-between px-6 py-1 st m-2  shadow-lg">
+      <nav className="flex  opacity-100   items-center  w-full justify-between px-6 py-1  m-2  shadow-lg z-20 z-10">
       <div className="logo flex items-center cursor-pointer">
         <GiHamburgerMenu onClick={handleToggle} size={32} />
         <Link to="/">

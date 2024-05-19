@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SEARCH_OPTIONS, YOUTUBE_SEARCH_VIDEO_API } from "../utils/constant";
 import SearchCard from "./SearchCard";
 import { Link, useSearchParams } from "react-router-dom";
+import {  ImSpinner8 } from "react-icons/im";
 
 const SearchContainer = () => {
   const [searchParams] = useSearchParams();
@@ -23,6 +24,11 @@ const SearchContainer = () => {
 
   console.log(searchList);
   return (
+    searchList.length===0?(
+    <div className=" flex justify-center items-center w-full ">
+      <ImSpinner8 className="w-16 h-16 text-gray-600 animate-spin fill-blue-600" />
+    </div>):(
+
     <div>
       {searchList
         .filter((item) => item.type === "video")
@@ -32,6 +38,7 @@ const SearchContainer = () => {
           </Link>
         ))}
     </div>
+    )
   );
 };
 

@@ -36,7 +36,7 @@ export  const  SEARCH_SUGGESTION_API= (query)=>`http://suggestqueries.google.com
 
 
 export const YOUTUBE_SEARCH_VIDEO_API= (query) => "https://yt-api.p.rapidapi.com/search?query="+query+"&geo=IN&type=video&sort_by=views"
-export const YOUTUBE_KEYWORD_VIDEO_API= (query,token) => "https://yt-api.p.rapidapi.com/search?query="+query+(token?"&token="+token:"")+"&geo=IN&type=video&sort_by=date"
+export const YOUTUBE_KEYWORD_VIDEO_API= (query,token) => "https://yt-api.p.rapidapi.com/search?query="+query+"&token="+token+"&geo=IN&type=video&sort_by=date"
 
 
 export const SEARCH_OPTIONS = {

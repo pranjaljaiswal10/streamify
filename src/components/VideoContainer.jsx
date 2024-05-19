@@ -5,6 +5,7 @@ import {
 } from "../utils/constant";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import HomePageShimmer from "./HomePageShimmer";
 
 const VideoContainer = () => {
   const [videoList, setVideoList] = useState([]);
@@ -53,16 +54,19 @@ const VideoContainer = () => {
     window.addEventListener("scroll", handleScroll);
     return () =>  window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  if(!videoList) return ;
+
+
+
   return (
-    <div className="flex flex-wrap ">
+  videoList.length===0?
+   ( <HomePageShimmer/>):
+    (<div className="grid grid-cols-4 "> 
       {videoList.map((item, index) => (
         <Link to={`/watch?v=${item.id}`} key={item.id}>
           <VideoCard {...item} thumbnail={channelThumbnail[index]} />
         </Link>
       ))}
-    </div>
+     </div>)
   );
 };
 

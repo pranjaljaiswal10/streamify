@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ButtonList = () => {
     const button=["Gaming","Song","Live","Soccer","Valentines","Cricket","Cookies"]
   return (
-    <>
+    < div>
     <button><FaRegCompass/></button>
     {
         button.map((item)=>(
@@ -16,7 +16,7 @@ const ButtonList = () => {
               </button>
         ))
     }
-    </>
+    </div>
   );
 };
 

@@ -5,8 +5,11 @@ import {
 } from "../utils/constant";
 import { Link, useSearchParams } from "react-router-dom";
 import SuggestionCard from "./SuggestionCard";
+import { useDispatch } from "react-redux";
+import { addData } from "../utils/searchSlice";
 
 const SuggestionVideoContainer = () => {
+  const dispatch=useDispatch()
   const [searchParams] = useSearchParams();
   const [relatedVideoIdList, setRelatedVideoIdList] = useState(null);
   useEffect(() => {
@@ -17,9 +20,10 @@ const SuggestionVideoContainer = () => {
       );
       const json = await response.json();
       setRelatedVideoIdList(json.data);
+      dispatch(addData(json.data))
     };
     getSuggestionVideo(searchParams.get("v"));
-  }, [searchParams]);
+  }, [searchParams,dispatch]);
 
 console.log(relatedVideoIdList)
 

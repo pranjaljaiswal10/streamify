@@ -26,7 +26,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="ml-6 mr-10 fixed">
+    <div className="ml-6 mr-10 w-fit">
       <ul className="space-y-3 mt-4 text-sm">
         <li>
           <NavLink
@@ -37,10 +37,12 @@ const SideBar = () => {
               }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
             }
           >
-            <span className="text-xl">
-              <GoHomeFill />
+            {toggleBar && <><span className="text-xl">
+             <GoHomeFill />
             </span>{" "}
-            {toggleBar && <span className="pl-4">Home</span>}
+             <span className="pl-4">Home</span>
+             </>
+             }
           </NavLink>
         </li>
         <li>

@@ -8,10 +8,10 @@ const Layout = () => {
   return (
     <Provider store={appStore}>
       <Header />
-      <div className="flex">   
+      <div className="grid grid-cols-2 ">
       <SideBar/>
       <Outlet />
-      </div>
+   </div>
     </Provider>
   );
 };

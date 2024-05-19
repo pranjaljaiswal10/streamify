@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams} from "react-router-dom";
 import { closeMenu } from "../utils/menuSlice";
 import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 import CommentContainer from "./CommentContainer";
 import SuggestionVideoContainer from "./SuggestionVideoContainer";
 import LiveMessageContainer from "./LiveMessageContainer";
+import WatchPageShimmer from "./WatchPageShimmer";
 
 
 
 const WatchPage = () => {
-   const [isOnline,setIsOnline]=useState(false)
+   const {data}=useSelector((store)=>store.data)
+   const [isOnline,setIsOnline]=useState(true)
    useEffect(()=>{
    function handleOnline(){
     setIsOnline(true)
@@ -31,7 +33,9 @@ const WatchPage = () => {
    dispatch(closeMenu())
     },[dispatch])
   return (
-    <div className=" px-14 flex pt-6">
+   data.length?
+    <WatchPageShimmer/>:(
+      isOnline && (<div className="mr-16 flex pt-6 ">
     <div className="w-8/12">
       <iframe className="w-full rounded"
             width="1200"
@@ -45,10 +49,11 @@ const WatchPage = () => {
        <CommentContainer videoId={searchParams.get("v")}/>
        </div> 
        <div className="w-4/12 pl-5">
-        {isOnline && <LiveMessageContainer/>}
+        <LiveMessageContainer/>
         <SuggestionVideoContainer/>
        </div>
-    </div>
+     </div>)
+    )
   );
 };
 
