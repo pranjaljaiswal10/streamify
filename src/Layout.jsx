@@ -4,14 +4,17 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import SideBar from "./components/SideBar";
 
+
 const Layout = () => {
+  
+
   return (
     <Provider store={appStore}>
       <Header />
-      <div className="grid grid-cols-2 ">
+      <div className="flex">
       <SideBar/>
       <Outlet />
-   </div>
+      </div>
     </Provider>
   );
 };

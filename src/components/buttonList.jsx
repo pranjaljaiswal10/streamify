@@ -1,22 +1,28 @@
-import { FaRegCompass } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-
 const ButtonList = () => {
-    const button=["Gaming","Song","Live","Soccer","Valentines","Cricket","Cookies"]
+  const button = [
+
+    "Live chat",
+    "Gaming",
+    "Song",
+    "Live",
+    "Soccer",
+    "Valentines",
+    "Cricket",
+    "Cookies",
+  ];
+
   return (
-    < div>
-    <button><FaRegCompass/></button>
-    {
-        button.map((item)=>(
-            <button key={item} className="bg-gray-400 rounded-md py-1 px-3 mx-2">
-            <Link to={`/explore/${item}`}>
-              {item}
-              </Link>
-              </button>
-        ))
-    }
-    </div>
+    <ul className="flex ml-4 overflow-x-scroll">
+      {button.map((item) => (
+        <Link to={`/explore/${item}`} key={item}>
+          <li className="bg-gray-400 cursor-pointer rounded-lg sm:px-4 sm:py-2 py-1 px-3 mx-2 mb-2">
+            {item}
+          </li>
+        </Link>
+      ))}
+    </ul>
   );
 };
 

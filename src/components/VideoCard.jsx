@@ -10,7 +10,7 @@ const VideoCard = ({snippet,statistics,contentDetails,thumbnail}) => {
    const duration=moment.utc(second*1000).format("mm:ss")
    
   return  (
-    <div className="shadow-lg p-2 m-2 w-72 ">
+    <div className="shadow-lg p-2 m-2 w-72 grow">
       <div className="relative">
         <img src={medium.url} className="rounded-lg" alt={title} />
         <small className="absolute text-white bottom-3 right-2 font-semibold p-0.5 rounded bg-black opacity-70">{duration}</small>

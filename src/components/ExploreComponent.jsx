@@ -13,13 +13,17 @@ const ExploreComponent = () => {
   }, [page]);
 
   const getKeyWordVideo = async () => {
-    const response = await fetch(
+  try{  const response = await fetch(
       YOUTUBE_KEYWORD_VIDEO_API(keyword, nextPageToken),
       SEARCH_OPTIONS
     );
     const json = await response.json();
-    setVideoList-( [...videoList, ...json.data]);
+    console.log(json)
+    setVideoList-([...videoList, ...json.data]);
     setNextPageToken(json.continuation);
+    }catch(error){
+  console.log(error)
+    }
   }
   useEffect(() => {
     function handleScroll() {
@@ -35,6 +39,8 @@ const ExploreComponent = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+console.log(videoList)
 
   return (
     <div className="flex flex-wrap">

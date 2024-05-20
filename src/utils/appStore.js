@@ -10,6 +10,7 @@ const appStore=configureStore({
         search:searchReducer,
         chat:chatReducer,
         data:dataReducer,
+       
     }
 })
 export default appStore; 

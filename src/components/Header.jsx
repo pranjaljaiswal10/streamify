@@ -54,9 +54,8 @@ const Header = () => {
   };
 
   return (
-    <>
     
-      <nav className="flex  opacity-100   items-center  w-full justify-between px-6 py-1  m-2  shadow-lg z-20 z-10">
+      <nav className="flex sticky top-0 left-0 items-center  w-full justify-between sm:px-6 sm:py-1   shadow-lg z-20 bg-white">
       <div className="logo flex items-center cursor-pointer">
         <GiHamburgerMenu onClick={handleToggle} size={32} />
         <Link to="/">
@@ -105,8 +104,6 @@ const Header = () => {
         <FaUserCircle size={32} />
       </div>
       </nav>
-    
-    </>
   );
 };
 

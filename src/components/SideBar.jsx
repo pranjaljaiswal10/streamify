@@ -26,51 +26,52 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="ml-6 mr-10 w-fit">
-      <ul className="space-y-3 mt-4 text-sm">
+    <div className={`ml-6  mr-10 fixed z-10 bg-white ${toggleBar? "w-[10rem] h-screen":""}`}>
+      <ul className="space-y-3 mt-4 text-sm pr-6">
         <li>
-          <NavLink
+        { toggleBar &&( <NavLink
             to="/"
             className={({ isActive }) =>
               `${
-                isActive ? "bg-gray-300 hover:bg-gray-400 " : "bg-transparent"
+                isActive ? "bg-gray-300 hover:bg-gray-400 font-bold " : "bg-transparent"
               }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
             }
           >
-            {toggleBar && <><span className="text-xl">
+            <span className="text-xl">
              <GoHomeFill />
-            </span>{" "}
-             <span className="pl-4">Home</span>
-             </>
-             }
-          </NavLink>
+            </span>
+             <span className="pl-4">Home</span>     
+          </NavLink>)
+}
         </li>
         <li>
-        <NavLink
+        {toggleBar &&(<NavLink
             to="/explore/Short"
             className={({ isActive }) =>
               `${
-                isActive ? "bg-gray-300 hover:bg-gray-400 " : "bg-transparent"
+                isActive ? "bg-gray-300 hover:bg-gray-400 font-bold" : "bg-transparent"
               }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
             }
           >
           <span className="text-xl">
             <SiYoutubeshorts />
           </span>
-          {toggleBar && <span className="pl-4">Short</span>}
-          </NavLink>
+           <span className="pl-4">Short</span>
+          </NavLink>)
+}
         </li>
+          
       </ul>
       <div className="pt-2 mt-4">
         {toggleBar && <span className="font-bold text-xl ml-3">Explore</span>}
-        <ul className="text-sm space-y-3">
-          {toggleBar && categories.map((item) => (
+        <ul className="text-sm space-y-3 pr-6">
+          {toggleBar && (categories.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={`/explore/${item.name}`}
                 className={({ isActive }) =>
                   `${
-                    isActive ? "bg-gray-400" : "bg-transparent"
+                    isActive ? "bg-gray-300 hover:bg-gray-400 font-bold" : "bg-transparent"
                   } pl-2 py-2 pr-8 font-medium hover:bg-gray-300 rounded-lg flex items-center`
                 }
               >
@@ -78,7 +79,7 @@ const SideBar = () => {
                 {toggleBar && <span className="pl-4">{item.name}</span>}
               </NavLink>
             </li>
-          ))}
+          )))}
         </ul>
       </div>
     </div>

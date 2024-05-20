@@ -14,6 +14,7 @@ const VideoContainer = () => {
   const [token, setToken] = useState("");
   const [page,setPage]=useState(1)
   
+
   const getChannelDetail = useCallback(async () => {
     const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
     const data = await res.json();
@@ -42,6 +43,8 @@ const VideoContainer = () => {
        console.log(error);
      }
     }
+
+
   
     useEffect(() => {
     function handleScroll() {
@@ -60,7 +63,7 @@ const VideoContainer = () => {
   return (
   videoList.length===0?
    ( <HomePageShimmer/>):
-    (<div className="grid grid-cols-4 "> 
+    (<div className="flex flex-wrap"> 
       {videoList.map((item, index) => (
         <Link to={`/watch?v=${item.id}`} key={item.id}>
           <VideoCard {...item} thumbnail={channelThumbnail[index]} />

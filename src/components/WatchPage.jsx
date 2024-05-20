@@ -11,6 +11,7 @@ import WatchPageShimmer from "./WatchPageShimmer";
 
 
 const WatchPage = () => {
+  const toggleBar=useSelector((store)=>store.menu.isMenuOpen)
    const {data}=useSelector((store)=>store.data)
    const [isOnline,setIsOnline]=useState(true)
    useEffect(()=>{
@@ -35,7 +36,7 @@ const WatchPage = () => {
   return (
    data.length?
     <WatchPageShimmer/>:(
-      isOnline && (<div className="mr-16 flex pt-6 ">
+      isOnline ? (<div className={`mr-16 flex pt-6 ${toggleBar?"ml-56":"ml-20"}`}>
     <div className="w-8/12">
       <iframe className="w-full rounded"
             width="1200"
@@ -53,6 +54,10 @@ const WatchPage = () => {
         <SuggestionVideoContainer/>
        </div>
      </div>)
+    :<div className=" w-screen h-screen flex justify-center items-center flex-col" >
+    <h1>Connect to the Internet</h1>
+    <p>You are offline.Check your Connection and refresh page</p>
+  </div>
     )
   );
 };
