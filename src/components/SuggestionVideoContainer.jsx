@@ -31,7 +31,7 @@ console.log(relatedVideoIdList)
 
   return (
     <>
-      {relatedVideoIdList.filter((item)=>item.type==="video").map((item) => (
+      {relatedVideoIdList.filter((item)=>item.type==="video"&& item.isLiveContent!==true).map((item) => (
         <Link to={`/watch?v=${item.videoId}`} key={item.videoId}>
           <SuggestionCard {...item} />
         </Link>

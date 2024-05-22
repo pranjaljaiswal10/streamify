@@ -2,8 +2,10 @@ import {  useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { SEARCH_OPTIONS, YOUTUBE_KEYWORD_VIDEO_API } from "../utils/constant";
 import ExploreCard from "./ExploreCard";
+import { useSelector } from "react-redux";
 
 const ExploreComponent = () => {
+  const isToggleBar=useSelector((store)=>store.menu.isMenuOpen)
   const { keyword } = useParams();
   const [videoList, setVideoList] = useState([]);
   const [nextPageToken, setNextPageToken] = useState("");
@@ -19,7 +21,7 @@ const ExploreComponent = () => {
     );
     const json = await response.json();
     console.log(json)
-    setVideoList-([...videoList, ...json.data]);
+    setVideoList([...videoList, ...json.data]);
     setNextPageToken(json.continuation);
     }catch(error){
   console.log(error)
@@ -43,7 +45,7 @@ const ExploreComponent = () => {
 console.log(videoList)
 
   return (
-    <div className="flex flex-wrap">
+    <div className={`flex flex-wrap ${isToggleBar?"ml-56":"ml-6"}` }>
       {videoList
         .filter(
           (item) =>

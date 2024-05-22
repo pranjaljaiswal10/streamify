@@ -26,7 +26,7 @@ const SearchContainer = () => {
   console.log(searchList);
   return (
     searchList.length===0?(
-    <div className={` flex justify-center items-center`}>
+    <div className=" flex justify-center items-center h-screen w-screen">
       <ImSpinner8 className="w-16 h-16 text-gray-600 animate-spin fill-blue-600" />
     </div>):(
 

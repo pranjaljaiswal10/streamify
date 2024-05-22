@@ -26,7 +26,7 @@ const SideBar = () => {
   ];
 
   return (
-    <div className={`ml-6  mr-10 fixed z-10 bg-white ${toggleBar? "w-[10rem] h-screen":""}`}>
+    <div className={`ml-6  mr-10 fixed z-10 overflow-y-auto h-[calc(100vh-2rem)] sm:overflow-hidden bg-white ${toggleBar? "w-[10rem] h-[500px]":""}`}>
       <ul className="space-y-3 mt-4 text-sm pr-6">
         <li>
         { toggleBar &&( <NavLink
@@ -37,7 +37,7 @@ const SideBar = () => {
               }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
             }
           >
-            <span className="text-xl">
+            <span className="lg:text-xl md:text-lg text-base">
              <GoHomeFill />
             </span>
              <span className="pl-4">Home</span>     

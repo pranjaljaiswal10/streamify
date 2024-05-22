@@ -7,7 +7,7 @@ const MainContainer = () => {
 
   return (
   <>
-   <div className={`mt-4 z-0 ${toggleBar?"sm:ml-56":"sm:ml-6"}`}>
+   <div className={`mt-4 z-0 ${toggleBar?" ml-48":"ml-12"}`}>
       <ButtonList />
       <VideoContainer />
      </div>

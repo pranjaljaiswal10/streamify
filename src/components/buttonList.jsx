@@ -1,8 +1,20 @@
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const ButtonList = () => {
   const button = [
-
+    "Dan Abramov",
+    "React js",
+    "Redux",
+    "Bundler",
+    "Debouncing",
+    "Tailwind",
+    "Web Developer",
+    "Hooks",
+    "Component",
+    "Akshay Saini OP",
+    "npm",
+    "Infinite Scroll",
+    "Cache",  
     "Live chat",
     "Gaming",
     "Song",
@@ -12,17 +24,22 @@ const ButtonList = () => {
     "Cricket",
     "Cookies",
   ];
+  const navigate=useNavigate()
+const handleClick=(e)=>{
+  const {innerText}=e.target
+  navigate(`/explore/${innerText}`)
 
+}
   return (
-    <ul className="flex ml-4 overflow-x-scroll">
+    <div className="sticky top-[55px] bg-white mr-4 flex overflow-x-scroll max-w-[calc(100vw-60vw)] text-sm z-10 sm:w-[calc(100vw-20vw)]" onClick={handleClick}>
       {button.map((item) => (
-        <Link to={`/explore/${item}`} key={item}>
-          <li className="bg-gray-400 cursor-pointer rounded-lg sm:px-4 sm:py-2 py-1 px-3 mx-2 mb-2">
+ 
+          <button className="py-1 px-2 rounded-lg bg-gray-100 mx-2 mb-2 flex-shrink-0 hover:bg-gray-200  sm:px-4" key={item}>
             {item}
-          </li>
-        </Link>
+          </button>
+       
       ))}
-    </ul>
+    </div>
   );
 };
 
