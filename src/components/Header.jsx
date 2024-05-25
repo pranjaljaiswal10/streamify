@@ -7,9 +7,7 @@ import { FaSearch, FaUserCircle } from "react-icons/fa";
 import { addData } from "../utils/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { FcSearch } from "react-icons/fc";
-import { FaArrowLeft } from "react-icons/fa6";
 import { GoArrowLeft, } from "react-icons/go";
-import { MdOutlineClose } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
@@ -53,8 +51,8 @@ const Header = () => {
 
   const handleSearchchange = (e) => {
     setSearchQuery(e.target.value);
-    console.log(e.taget.localName)
   };
+
   const handleToggle = () => {
     dispatch(toggleMenu());
   };
@@ -68,52 +66,90 @@ const handleLeftArrowClick=()=>{
 
   return (
     
-      <nav className="flex sticky top-0 left-0 items-center  w-full justify-between sm:px-6 py-1   shadow-lg z-20 bg-white">
-      <div className="logo flex items-center cursor-pointer">
-        <GiHamburgerMenu onClick={handleToggle}  className="md:text-3xl sm:text-xl  hover:bg-gray-100 p-1" />
-        <Link to="/">
-          <img src={LOGO} alt="youtube-logo" className="h-10 md:h-12 md:pl-2" />
-        </Link>
+      <nav className="flex sticky top-0 left-0  h-14 w-full justify-between sm:px-6 px-3   shadow-lg z-20 bg-white">
+      <div className="flex items-center gap-2 py-3 ">
+        <div className="  text-base md:text-2xl cursor-pointer rounded-full hover:bg-gray-100 p-1">
+        <GiHamburgerMenu onClick={handleToggle}   />
+        </div>
+      {!isVisible && <Link to="/">
+                    <img src={LOGO} alt="youtube-logo " className=" h-12 md:pl-2" />
+      
+        </Link>}
       </div>
-     {isVisible &&( <div className="mx-6 flex w-80 relative  my-1.5 sm:my-0  ">
-        <button className="hidden md:block absolute left-4 top-4" onClick={handleLeftArrowClick}>{<GoArrowLeft/>}</button>
+
+      {isVisible && (<div className="lg:mx-8 mx-0 md:hidden block  w-3/5 md:4/5 relative ">
+          <div className="flex items-center mt-2.5">
+            <button onClick={handleLeftArrowClick} className="absolute">{<GoArrowLeft/>}</button>
           <input
             type="text "
             className=
-            {`px-5 w-full border border-gray-400 py-0.5 pl-8 sm:py-2  ${isVisible?"rounded-l-full":"rounded-full"}`}
+            {` w-full border border-gray-400 sm:py-1 pl-4  rounded-l-full`}
             value={searchQuery}
-            onChange={handleSearchchange}
             placeholder="Search...."
+            onChange={handleSearchchange}
             onFocus={() => setShowSuggestions(true)}
-           
+            onBlur={()=>setShowSuggestions(false)}
+            onMouseEnter={()=>setShowSuggestions(true)}
+            onMouseLeave={()=>setShowSuggestions(false)}
           />
-          <button className="absolute right-16 top-4" onClick={()=>{setSearchQuery("")}}>{<AiOutlineClose/>}</button>
-         {isVisible && (<button
-            className="border border-gray-400 px-5 py-0.5 sm:py-2 rounded-r-full bg-gray-100"
+         
+         <button
+            className="border border-gray-400 px-5 py-1 rounded-r-full bg-gray-100"
             onClick={handleSearchClick}
           >
-            🔍
-          </button>)}
+          {<FaSearch/>}
+          </button>
           <ul
-            className="fixed z-20 bg-slate-50 w-1/4"
-           
-          >
+            className="fixed z-20 bg-slate-50 top-12 w-[290px] pr-8" >
             {showSuggestions &&
               suggestionList.map((item) => (
                   <Link to={`/result?search-query=${item}`}  key={item}>
-                <li className="list-none pb-2">
+                <li className="list-none pb-2 ">
                     <FcSearch className="inline" /> {item}
                 </li>
                   </Link>
               ))}
           </ul>
-      </div>)
-}
-     {!isVisible && <div className="">
-        <button onClick={handleSearchIconClick}>{<FaSearch/>}</button>
-      </div>}
-      <div className="cursor-pointer">
-        <FaUserCircle size={32}  className=""/>
+          </div>
+      </div>)}
+
+       <div className="mx-8  w-1/3 relative hidden  md:block items-center">
+         <div className="flex mt-2.5">
+          <input
+            type="text "
+            className=
+            {` w-full border border-gray-400 sm:py-1 pl-3  rounded-l-full`}
+            value={searchQuery}
+            placeholder="Search...."
+            onChange={handleSearchchange}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={()=>setShowSuggestions(false)}
+          />
+         
+          <button
+            className="border border-gray-400 px-5  rounded-r-full bg-gray-100"
+            onClick={handleSearchClick}
+          >
+          {<FaSearch/>}
+          </button>
+          <ul
+            className="fixed z-20 bg-slate-50 top-12 w-[430px] pr-8" >
+            {showSuggestions &&
+              suggestionList.map((item) => (
+                  <Link to={`/result?search-query=${item}`}  key={item}>
+                <li className="list-none pb-2 ">
+                    <FcSearch className="inline" /> {item}
+                </li>
+                  </Link>
+              ))}
+          </ul>
+          </div>
+      </div>
+     <div className="flex items-center ">
+     {!isVisible && <button className="pr-12 block md:hidden" onClick={handleSearchIconClick}><FaSearch/></button>}
+      <div className=" text-base md:text-2xl cursor-pointer  hover:bg-gray-100  ">
+        <FaUserCircle />
+      </div>
       </div>
       </nav>
   );

@@ -10,17 +10,17 @@ const VideoCard = ({snippet,statistics,contentDetails,thumbnail}) => {
    const duration=moment.utc(second*1000).format("mm:ss")
    
   return  (
-    <div className="shadow-lg p-2 m-2 w-72 grow">
+    <div className="hover:shadow-lg  p-2 sm:m-2">
       <div className="relative">
         <img src={medium.url} className="rounded-lg" alt={title} />
-        <small className="absolute text-white bottom-3 right-2 font-semibold p-0.5 rounded bg-black opacity-70">{duration}</small>
-        </div>
-        <div className="flex">
-        <img src={thumbnail?thumbnail.url:USER_ICON} alt="" className="rounded-full h-fit w-2/12 mt-2" />
-        <ul className="w-10/12 text-xs ml-1">
-        <li className="font-bold  py-2 truncate"> {title}</li>
-        <li className="text-zinc-700 font-semibold">{channelTitle}</li>
-        <li className="text-zinc-600 font-semibold">{`${formatter.format(viewCount)} views . ${relativeTime(publishedAt)}`  }</li>
+        <small className=" px-1   opacity-80 bg-black text-white rounded-sm  font-bold absolute bottom-2 right-2">{duration}</small>
+       </div>
+        <div className="flex py-1">
+        <img src={thumbnail?thumbnail.url:USER_ICON} alt="" className="rounded-full h-9 w-9 mr-2" />
+        <ul className=" text-xs w-64">
+        <li className="font-bold  py-2 pb-1 text-sm " > {title}</li>
+        <li className="text-gray-600 ">{channelTitle}</li>
+        <li className="text-gray-600 "><span>{formatter.format(viewCount)}views </span>{relativeTime(publishedAt)} </li>
         </ul>
         </div>
     </div>

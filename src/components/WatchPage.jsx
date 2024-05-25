@@ -36,7 +36,7 @@ const WatchPage = () => {
   return (
    data.length?
     <WatchPageShimmer/>:(
-      isOnline ? (<div className={`mr-16 flex pt-6 ${toggleBar?"ml-56":"ml-20"}`}>
+      isOnline ? (<div className={`lg:px:-12 lg:flex pt-6 ${toggleBar?"ml-56":"ml-20"}`}>
     <div className="w-8/12">
       <iframe className="w-full rounded"
             width="1200"
@@ -49,10 +49,11 @@ const WatchPage = () => {
        <WatchVideoDetailContainer videoId={searchParams.get("v")} />
        <CommentContainer videoId={searchParams.get("v")}/>
        </div> 
-       <div className="w-4/12 pl-5">
+       <div className="w-4/12 pl-5 md:block hidden">
         <LiveMessageContainer/>
         <SuggestionVideoContainer/>
-       </div>
+        </div>
+      
      </div>)
     :<div className=" w-screen h-screen flex justify-center items-center flex-col" >
     <h1>Connect to the Internet</h1>

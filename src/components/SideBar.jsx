@@ -26,26 +26,26 @@ const SideBar = () => {
   ];
 
   return (
-    <div className={`ml-6  mr-10 fixed z-10 overflow-y-auto h-[calc(100vh-2rem)] sm:overflow-hidden bg-white ${toggleBar? "w-[10rem] h-[500px]":""}`}>
-      <ul className="space-y-3 mt-4 text-sm pr-6">
+   toggleBar && (<div className={`lg:ml-6  lg:mr-10 fixed z-10 overflow-auto md:overflow-visible bg-white  lg:w-[10rem] h-[500px]`}>
+      <ul className="space-y-3 mt-4 text-sm lg:pr-6">
         <li>
-        { toggleBar &&( <NavLink
+        <NavLink
             to="/"
             className={({ isActive }) =>
               `${
                 isActive ? "bg-gray-300 hover:bg-gray-400 font-bold " : "bg-transparent"
-              }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
+              }   py-2  pl-2 lg:mr-0  mr-12 lg:pr-8  font-medium flex items-center hover:bg-gray-300 duration-200 rounded-lg`
             }
           >
             <span className="lg:text-xl md:text-lg text-base">
              <GoHomeFill />
             </span>
              <span className="pl-4">Home</span>     
-          </NavLink>)
-}
+          </NavLink>
+
         </li>
         <li>
-        {toggleBar &&(<NavLink
+        <NavLink
             to="/explore/Short"
             className={({ isActive }) =>
               `${
@@ -57,15 +57,14 @@ const SideBar = () => {
             <SiYoutubeshorts />
           </span>
            <span className="pl-4">Short</span>
-          </NavLink>)
-}
+          </NavLink>
         </li>
           
       </ul>
       <div className="pt-2 mt-4">
-        {toggleBar && <span className="font-bold text-xl ml-3">Explore</span>}
-        <ul className="text-sm space-y-3 pr-6">
-          {toggleBar && (categories.map((item) => (
+<span className="font-bold text-xl ml-3">Explore</span>
+        <ul className="text-sm space-y-3 lg:pr-6">
+          {categories.map((item) => (
             <li key={item.name}>
               <NavLink
                 to={`/explore/${item.name}`}
@@ -76,13 +75,13 @@ const SideBar = () => {
                 }
               >
                 <span className="text-xl"> {item.icon}</span>
-                {toggleBar && <span className="pl-4">{item.name}</span>}
+                <span className="pl-4">{item.name}</span>
               </NavLink>
             </li>
-          )))}
+          ))}
         </ul>
       </div>
-    </div>
+    </div>)
   );
 };
 
