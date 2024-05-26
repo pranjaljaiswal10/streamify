@@ -23,14 +23,14 @@ const SearchContainer = () => {
     getSearchData();
   }, [searchQuery]);
 
-  console.log(searchList);
+
   return (
     searchList.length===0?(
-    <div className=" flex justify-center items-center h-screen w-screen">
+    <div className=" flex flex-wrap justify-center items-center h-screen w-screen">
       <ImSpinner8 className="w-16 h-16 text-gray-600 animate-spin fill-blue-600" />
     </div>):(
 
-    <div className={`mt-4 ${toggleBar?"ml-56":"ml-12"}`}>
+    <div className={`flex flex-col item-center  mt-4 ${toggleBar?"ml-56 lg:opacity-100 lg:bg-white  opacity-50 bg-gray-200":"md:ml-20 mx-8 "}`}>
       {searchList
         .filter((item) => item.type === "video")
         .map((item) => (

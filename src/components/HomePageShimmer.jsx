@@ -3,7 +3,7 @@ import { IoImage } from "react-icons/io5";
 const HomePageShimmer = () => {
   return (
   
-  <div className="animate-pulse sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
+  <div className="animate-pulse flex flex-wrap justify-center sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-4">
     {
       Array(12).fill(" ").map((item,index)=>(
      <div key={index} className="m-2 p-2 w-72">

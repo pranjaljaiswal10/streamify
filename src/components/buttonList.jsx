@@ -1,4 +1,4 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ButtonList = () => {
   const button = [
@@ -14,7 +14,7 @@ const ButtonList = () => {
     "Akshay Saini OP",
     "npm",
     "Infinite Scroll",
-    "Cache",  
+    "Cache",
     "Live chat",
     "Gaming",
     "Song",
@@ -24,20 +24,23 @@ const ButtonList = () => {
     "Cricket",
     "Cookies",
   ];
-  const navigate=useNavigate()
-const handleClick=(e)=>{
-  const {innerText}=e.target
-  navigate(`/explore/${innerText}`)
-
-}
+  const navigate = useNavigate();
+  const handleClick = (e) => {
+    const { innerText } = e.target;
+    navigate(`/explore/${innerText}`);
+  };
   return (
-    <div className=" bg-white mr-4 flex overflow-x-auto max-w-[calc(100vw-15vw)] text-sm  " onClick={handleClick}>
+    <div
+      className=" bg-white mr-4 flex overflow-x-auto max-w-[calc(100vw-15vw)] text-sm  "
+      onClick={handleClick}
+    >
       {button.map((item) => (
- 
-          <button className="py-1 px-2 rounded-lg bg-gray-100 mx-2 mb-2 flex-shrink-0 hover:bg-gray-200  sm:px-4" key={item}>
-            {item}
-          </button>
-       
+        <button
+          className="py-1 px-2 rounded-lg bg-gray-100 mx-2 mb-2 flex-shrink-0 hover:bg-gray-200  sm:px-4"
+          key={item}
+        >
+          {item}
+        </button>
       ))}
     </div>
   );

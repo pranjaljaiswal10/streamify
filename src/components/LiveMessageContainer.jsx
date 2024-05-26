@@ -18,9 +18,9 @@ const LiveMessageContainer = () => {
    clearInterval(timerId)
    } 
    },[dispatch])
-  return (<>
+  return (<div className="hidden md:block">
    <LiveChat/>
-  </>)
+  </div>)
 };
 
 export default LiveMessageContainer;

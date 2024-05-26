@@ -27,28 +27,28 @@ const WatchVideoButtonList = ({ channelId, likeCount }) => {
       <div className="flex justify-between">
         <img src={medium.url} className="h-10 rounded-full" alt="" />
         <div className="flex-1 pl-2">
-          <strong>{snippet.title}</strong>
+          <strong className="text-sm md:text-base">{snippet.title}</strong>
           <small className="block">
             {formatter.format(statistics.subscriberCount)} subscribers
           </small>
         </div>
-        <button className=" bg-black px-3 py-1 rounded-full text-white hover:bg-slate-900">
+        <button className=" bg-black px-3 md:py-1 py-0.5 text-sm md:text-base rounded-full text-white hover:bg-slate-900">
           Subscribe
         </button>
       </div>
       <ul className="flex font-bold my-4">
-        <li className="p-2 bg-slate-100 hover:bg-slate-300 cursor-pointer ml-3 rounded-full">
+        <li className="p-2 bg-slate-100 hover:bg-slate-300 text-sm md:text-base cursor-pointer ml-3 rounded-full">
           <AiOutlineLike className="inline   " />
           {formatter.format(likeCount)}
         </li>
-        <li className="p-2 bg-slate-100 hover:bg-slate-300 cursor-pointer ml-3 rounded-full">
+        <li className="p-2 bg-slate-100 hover:bg-slate-300 text-sm md:text-base cursor-pointer ml-3 rounded-full">
           <AiOutlineDislike className="inline  " />
         </li>
-        <li className="p-2 bg-slate-100 hover:bg-slate-300 cursor-pointer ml-3 rounded-full">
+        <li className="p-2 bg-slate-100 hover:bg-slate-300 text-sm md:text-base cursor-pointer ml-3 rounded-full">
           <PiShareFat className="inline  " />
           Share
         </li>
-        <li className="p-2 bg-slate-100 hover:bg-slate-300 cursor-pointer ml-3 rounded-full">
+        <li className="p-2 bg-slate-100 hover:bg-slate-300 text-sm md:text-base cursor-pointer ml-3 rounded-full">
           <TfiDownload className="inline  " />
           Download
         </li>

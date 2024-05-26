@@ -10,7 +10,6 @@ const LiveChat = () => {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
     dispatch(
       addMessage({
         name: "Pranjal Jaiswal",

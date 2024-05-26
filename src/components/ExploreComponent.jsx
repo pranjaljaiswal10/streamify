@@ -42,7 +42,6 @@ const ExploreComponent = () => {
     };
   }, []);
 
-console.log(videoList)
 
   return (
     <div className={`flex flex-wrap ${isToggleBar?"ml-56":"ml-6"}` }>

@@ -25,7 +25,7 @@ const WatchVideoDetailContainer = ({ videoId }) => {
 
   return (
     <>
-      <h1 className="font-bold text-lg py-3">{snippet.title}</h1>
+      <h1 className="font-bold text-lg sm:text-base py-3">{snippet.title}</h1>
       <WatchVideoButtonList channelId={snippet.channelId} {...statistics} />
       <WatchvideoDescription {...snippet} {...statistics} />
       <span className="my-6 font-bold text-xl">

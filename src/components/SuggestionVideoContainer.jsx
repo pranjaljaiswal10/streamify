@@ -25,7 +25,6 @@ const SuggestionVideoContainer = () => {
     getSuggestionVideo(searchParams.get("v"));
   }, [searchParams,dispatch]);
 
-console.log(relatedVideoIdList)
 
   if (!relatedVideoIdList) return;
 
