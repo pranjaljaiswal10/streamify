@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './Layout.jsx'
-import WatchPage from "./components/WatchPage.jsx"
-import SearchContainer from './components/SearchContainer.jsx'
-import ExploreComponent from './components/ExploreComponent.jsx'
-import MainContainer from './components/MainContainer.jsx'
+import { Suspense } from 'react'
+import WatchPageShimmer from './components/WatchPageShimmer.jsx'
+import HomePageShimmer from './components/HomePageShimmer.jsx'
+import { ImSpinner8 } from 'react-icons/im'
+
+import { MainContainer } from './Layout.jsx'
+import { WatchPage } from './Layout.jsx'
+import { SearchContainer } from './Layout.jsx'
+import { ExploreComponent } from './Layout.jsx'
 
 
 const router=createBrowserRouter([{
@@ -15,16 +20,35 @@ const router=createBrowserRouter([{
   children:[
     {
       path:"/",
-      element:<MainContainer/>
+      element:(
+        <Suspense fallback={<HomePageShimmer/>}>
+         <MainContainer/> 
+        </Suspense>
+      )
     },{
       path:"/watch",
-      element:<WatchPage/>
+      element:(
+        <Suspense fallback={<WatchPageShimmer/>}> 
+        <WatchPage/>
+        </Suspense>
+      )
     },{
       path:"/result",
-      element:<SearchContainer/>
+      element:(
+        <Suspense fallback={<div className=" flex flex-wrap justify-center items-center h-screen w-screen">
+        <ImSpinner8 className="w-16 h-16 text-gray-600 animate-spin fill-blue-600" />
+      </div>}>
+         <SearchContainer/> 
+        </Suspense>
+      )
+     
     },{
       path:"/explore/:keyword",
-      element:<ExploreComponent/>
+      element:(
+        <Suspense fallback={<HomePageShimmer/>}>
+        <ExploreComponent/>
+        </Suspense>
+      )
     }
   ]
 }])

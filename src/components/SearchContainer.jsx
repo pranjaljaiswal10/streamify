@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
-import { SEARCH_OPTIONS, YOUTUBE_SEARCH_VIDEO_API } from "../utils/constant";
 import SearchCard from "./SearchCard";
 import { Link, useSearchParams } from "react-router-dom";
 import {  ImSpinner8 } from "react-icons/im";
 import { useSelector } from "react-redux";
+import useGetSearchVideo from "../utils/hooks/useGetSearchVideo";
 
 const SearchContainer = () => {
   const [searchParams] = useSearchParams();
-  const [searchList, setSearchList] = useState([]);
   const toggleBar=useSelector((store)=>store.menu.isMenuOpen)
   const searchQuery = encodeURIComponent(searchParams.get("search-query"));
-
-  useEffect(() => {
-    async function getSearchData() {
-      const response = await fetch(
-        YOUTUBE_SEARCH_VIDEO_API(searchQuery),
-        SEARCH_OPTIONS
-      );
-      const json = await response.json();
-      setSearchList(json.data);
-    }
-    getSearchData();
-  }, [searchQuery]);
-
+  const searchList=useGetSearchVideo(searchQuery)
 
   return (
     searchList.length===0?(

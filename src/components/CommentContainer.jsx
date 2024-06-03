@@ -1,19 +1,10 @@
-import { useEffect, useState } from "react";
-import { YOUTUBE_COMMENTS_API } from "../utils/constant";
+import { useState } from "react";
+import useGetComment from "../utils/hooks/useGetComment";
 import CommentList from "./CommentList";
 
 const CommentContainer = ({ videoId }) => {
-  const [commentList, setCommentList] = useState([]);
   const [isReplyVisible, setIsReplyVisible] = useState("");
-  useEffect(() => {
-    const getCommentDetail = async () => {
-      const response = await fetch(YOUTUBE_COMMENTS_API(videoId));
-      const data = await response.json();
-      setCommentList(data.items);
-    };
-    getCommentDetail();
-  }, [videoId]);
-
+  const commentList=useGetComment(videoId)
   if (!commentList) return null;
   return (
     <ul className="py-6">

@@ -23,7 +23,7 @@ const SearchCard = ({
         <strong className="">{title}</strong>
           <small className="pl-2 block text-slate-400 font-semibold text-sm">{formatter.format(
             viewCount
-          )} &middot; views {publishedTimeText}</small>
+          )} • views {publishedTimeText}</small>
       
         <div className="flex items-center my-4">
           <img

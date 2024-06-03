@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 
 
 const WatchPageShimmer = () => {
+  const toggleMenu=useSelector((store)=>store.menu.isMenuOpen)
   return (
-  <div className="flex mt-4 w-screen animate-pulse">
+  <div className={`flex mt-4 w-screen animate-pulse ${toggleMenu?"ml-56":"ml-20"}`}>
   <div className="w-7/12">
     <div className=" w-full h-[400px] rounded bg-gray-400"></div>
     <div className="h-4 w-[600px] rounded bg-gray-400 mt-3"></div>
