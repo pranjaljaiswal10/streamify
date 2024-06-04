@@ -6,7 +6,8 @@ import HomePageShimmer from "./HomePageShimmer";
 
 const ExploreComponent = () => {
   const isToggleBar = useSelector((store) => store.menu.isMenuOpen);
-  const { keyword } = useParams();
+  let { keyword } = useParams();
+  console.log(keyword)
   const videoList = useGetExploreVideo(keyword);
   if (videoList.length === 0)
     return (
@@ -21,7 +22,7 @@ const ExploreComponent = () => {
           (item) =>
             item.type === "video" &&
             item.isLive !== true &&
-            item.title.includes("LIVE" || "live") === false
+            item.title.includes(("LIVE" || "live")) === false
         )
         .map((item) => (
           <Link to={`/watch?v=${item.videoId}`} key={item.videoId}>

@@ -24,14 +24,14 @@ const VideoCard = ({ snippet, statistics, contentDetails, thumbnail }) => {
           {formattedDuration}
         </small>
       </div>
-      <div className="flex py-1">
+      <div className="flex  pt-3">
         <img
           src={thumbnail ? thumbnail.url : USER_ICON}
           alt=""
-          className="rounded-full h-9 w-9 mr-2"
+          className="rounded-full h-10 w-10 mr-2"
         />
         <ul className=" text-xs w-64">
-          <li className="font-bold  py-2 pb-1 text-sm line-clamp-2"> {title}</li>
+          <li className="font-bold   pb-1 text-sm line-clamp-2"> {title}</li>
           <li className="text-gray-600 ">{channelTitle}</li>
           <li className="text-gray-600 ">
             <span>{formatter.format(viewCount)}views </span>
