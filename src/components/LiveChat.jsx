@@ -32,7 +32,7 @@ const LiveChat = () => {
               key={index}
               className="flex items-center shadow-lg bg-slate-50 rounded mb-4 "
             >
-              <img src={USER_ICON} alt="" className="w-8 h-8 mx-2" />
+              <img src={item.image} alt="" className="w-8 h-8 rounded-full mx-2" />
               <div className="">
                 <strong className="text-sm">{item.name}</strong>
                 <p className="text-sm">{item.message}</p>
