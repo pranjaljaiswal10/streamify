@@ -7,8 +7,8 @@ import HomePageShimmer from "./HomePageShimmer";
 const ExploreComponent = () => {
   const isToggleBar = useSelector((store) => store.menu.isMenuOpen);
   let { keyword } = useParams();
-  console.log(keyword)
   const videoList = useGetExploreVideo(keyword);
+  console.log(videoList)
   if (videoList.length === 0)
     return (
       <div className={`${isToggleBar ? "ml-56" : "ml-6"}`}>

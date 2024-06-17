@@ -14,7 +14,7 @@ const useGetExploreVideo = (keyword) => {
         SEARCH_OPTIONS
       );
       const json = await response.json();
-      console.log(json);
+  
       setVideoList(json.data);
     } catch (error) {
       console.log(error);
@@ -22,21 +22,4 @@ const useGetExploreVideo = (keyword) => {
   };
   return videoList;
 }
-
-  // useEffect(() => {
-  //   function handleScroll() {
-  //     const isBottom =
-  //       window.innerHeight + window.scrollY >=
-  //       document.documentElement.scrollHeight;
-  //     if (isBottom) {
-  //       setPage((prevPage) => prevPage + 1);
-  //     }
-  //   }
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
- 
-
 export default useGetExploreVideo;

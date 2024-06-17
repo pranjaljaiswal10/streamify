@@ -3,6 +3,7 @@ import menuReducer from "./menuSlice"
 import searchReducer from "./searchSlice"
 import chatReducer from "./chatSlice"
 import dataReducer from "./dataSlice"
+import keywordReducer from "./keywordSlice";
 
 const appStore=configureStore({
     reducer:{
@@ -10,7 +11,7 @@ const appStore=configureStore({
         search:searchReducer,
         chat:chatReducer,
         data:dataReducer,
-       
+        keyword:keywordReducer, 
     }
 })
 export default appStore; 

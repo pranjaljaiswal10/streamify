@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { YOUTUBE_CHANNEL_DETAILS_API, YOUTUBE_VIDEOS_API } from "../constant";
+import {
+  YOUTUBE_CHANNEL_DETAILS_API,
+  YOUTUBE_VIDEOS_API,
+} from "../constant";
 
 const useGetHomePageVideo = () => {
   const [videoList, setVideoList] = useState([]);
@@ -7,9 +10,10 @@ const useGetHomePageVideo = () => {
   const [channelThumbnail, setChannelThumbnail] = useState([]);
   const [token, setToken] = useState("");
   const [page, setPage] = useState(1);
-
   const getChannelDetail = useCallback(async () => {
-    const res = await fetch(YOUTUBE_CHANNEL_DETAILS_API(channelId.toString())); //id parameter accept comma seperated value
+    const res = await fetch(
+      YOUTUBE_CHANNEL_DETAILS_API(channelId.toString()) 
+    ); //id parameter accept comma seperated value
     const data = await res.json();
     data.items &&
       setChannelThumbnail((prevThumbnail) => [
@@ -28,7 +32,8 @@ const useGetHomePageVideo = () => {
 
   const getVideos = async () => {
     try {
-      const response = await fetch(YOUTUBE_VIDEOS_API(token));
+    
+      const response =  await fetch(YOUTUBE_VIDEOS_API(token))
       const data = await response.json();
       setVideoList([...videoList, ...data.items]);
       setToken(data.nextPageToken);

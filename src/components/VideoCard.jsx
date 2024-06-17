@@ -34,7 +34,7 @@ const VideoCard = ({ snippet, statistics, contentDetails, thumbnail }) => {
           <li className="font-bold   pb-1 text-sm line-clamp-2"> {title}</li>
           <li className="text-gray-600 ">{channelTitle}</li>
           <li className="text-gray-600 ">
-            <span>{formatter.format(viewCount)}views </span>
+            <span>{formatter.format(viewCount)} views </span>
             •{relativeTime(publishedAt)}{" "}
           </li>
         </ul>

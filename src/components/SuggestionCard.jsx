@@ -17,8 +17,8 @@ const SuggestionCard = ({
         </small>
       </div>
       <ul className="pl-3 md:w-9/12">
-        <li className="font-bold text-sm ">{title}</li>
-        <li className="text-zinc-600 font-semibold text-sm line-clamp-2">{channelTitle}</li>
+        <li className="font-bold text-sm line-clamp-2">{title}</li>
+        <li className="text-zinc-600 font-semibold text-sm ">{channelTitle}</li>
         <li className="inline text-zinc-600 text-sm">
           {formatter.format(viewCount)} views • {publishedTimeText}
         </li>

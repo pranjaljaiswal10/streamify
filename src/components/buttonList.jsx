@@ -1,6 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addKeyword } from "../utils/keywordSlice";
+
 
 const ButtonList = () => {
+  const dispatch=useDispatch()
   const button = [
     "Dan Abramov",
     "React js",
@@ -24,10 +27,10 @@ const ButtonList = () => {
     "Cricket",
     "Cookies",
   ];
-  const navigate = useNavigate();
+  
   const handleClick = (e) => {
     const { innerText } = e.target;
-    navigate(`/explore/${innerText}`);
+    dispatch(addKeyword(innerText))
   };
   return (
     <div
