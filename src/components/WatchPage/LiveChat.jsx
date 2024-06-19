@@ -32,7 +32,11 @@ const LiveChat = () => {
               key={index}
               className="flex items-center shadow-lg bg-slate-50 rounded mb-4 "
             >
-              <img src={item.image} alt="" className="w-8 h-8 rounded-full mx-2" />
+              <img
+                src={item.image}
+                alt=""
+                className="w-8 h-8 rounded-full mx-2"
+              />
               <div className="">
                 <strong className="text-sm">{item.name}</strong>
                 <p className="text-sm">{item.message}</p>
@@ -64,7 +68,7 @@ const LiveChat = () => {
         onClick={handleToggeleChat}
         className="font-bold texd-sm border-t-2 border-gray-200 w-full py-2"
       >
-       {toggleChat?"Hide Chat":"Show Chat"}
+        {toggleChat ? "Hide Chat" : "Show Chat"}
       </button>
     </div>
   );

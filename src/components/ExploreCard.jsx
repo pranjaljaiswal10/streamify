@@ -29,7 +29,7 @@ const ExploreCard = ({
           <li className="inline text-zinc-600 font-semibold">{`${formatter.format(
             viewCount
           )} views • 
-          ${ publishedTimeText }`}</li>
+          ${publishedTimeText}`}</li>
         </ul>
       </div>
     </div>

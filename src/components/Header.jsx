@@ -105,13 +105,13 @@ const Header = () => {
               {<FaSearch />}
             </button>
             {searchQuery !== "" && (
-            <button
-              className="absolute top-4 right-16 sm:top-5"
-              onClick={() => setSearchQuery("")}
-            >
-              {<AiOutlineClose />}
-            </button>
-          )}
+              <button
+                className="absolute top-4 right-16 sm:top-5"
+                onClick={() => setSearchQuery("")}
+              >
+                {<AiOutlineClose />}
+              </button>
+            )}
             <ul className="fixed z-20 bg-slate-50 top-12 w-[290px] pr-8">
               {showSuggestions &&
                 suggestionList.map((item) => (

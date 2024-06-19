@@ -10,7 +10,6 @@ const SearchCard = ({
   thumbnail,
   viewCount,
 }) => {
-
   return (
     <div className="flex flex-col  sm:flex-row my-4">
       <div className="relative md:w-3/12 ">
@@ -21,14 +20,14 @@ const SearchCard = ({
       </div>
       <div className="  md:w-9/12 pl-4 ">
         <strong className="">{title}</strong>
-          <small className="pl-2 block text-slate-400 font-semibold text-sm">{formatter.format(
-            viewCount
-          )} • views {publishedTimeText}</small>
-      
+        <small className="pl-2 block text-slate-400 font-semibold text-sm">
+          {formatter.format(viewCount)} • views {publishedTimeText}
+        </small>
+
         <div className="flex items-center my-4">
           <img
             src={channelThumbnail[0].url}
-            className="rounded-full md:h-8 w-8" 
+            className="rounded-full md:h-8 w-8"
             alt=""
           />
           <span className="text-slate-600 font-semibold text-sm pl-3">
