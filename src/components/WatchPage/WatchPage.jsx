@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { closeMenu } from "../utils/menuSlice";
+import { closeMenu } from "../../utils/menuSlice";
 import WatchVideoDetailContainer from "./WatchVideoDetailContaiiner";
 import CommentContainer from "./CommentContainer";
 import SuggestionVideoContainer from "./SuggestionVideoContainer";
 import LiveMessageContainer from "./LiveMessageContainer";
-import WatchPageShimmer from "./WatchPageShimmer";
+import WatchPageShimmer from "../Shimmer/WatchPageShimmer";
 
 const WatchPage = () => {
   const toggleBar = useSelector((store) => store.menu.isMenuOpen);

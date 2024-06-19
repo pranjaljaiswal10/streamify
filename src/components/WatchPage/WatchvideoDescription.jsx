@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { formatter, relativeTime } from "../utils/helper";
+import { formatter, relativeTime } from "../../utils/helper";
 
 const WatchvideoDescription = ({ description, publishedAt, viewCount }) => {
   const [isOpen, setIsOpen] = useState(false);

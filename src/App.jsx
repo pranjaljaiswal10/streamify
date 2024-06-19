@@ -3,20 +3,22 @@ import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout.jsx'
 import { Suspense } from 'react'
-import WatchPageShimmer from './components/WatchPageShimmer.jsx'
-import HomePageShimmer from './components/HomePageShimmer.jsx'
 import { ImSpinner8 } from 'react-icons/im'
 import { lazy } from "react";
+import HomePageShimmer from './components/Shimmer/HomePageShimmer.jsx';
+import WatchPageShimmer from './components/Shimmer/WatchPageShimmer.jsx';
+import Error from './components/Error.jsx';
 
-const MainContainer= lazy(()=>import("./components/MainContainer.jsx"))
-const WatchPage=lazy(()=>import("./components/WatchPage.jsx"))
-const SearchContainer=lazy(()=>import("./components/SearchContainer.jsx"))
+const MainContainer= lazy(()=>import("./components/HomePage/MainContainer.jsx"))
+const WatchPage=lazy(()=>import("./components/WatchPage/WatchPage.jsx"))
+const SearchContainer=lazy(()=>import("./components/SearchPage/SearchContainer.jsx"))
 const ExploreComponent=lazy(()=>import("./components/ExploreComponent.jsx"))
 
 
 const router=createBrowserRouter([{
     path:"/",
     element:<Layout/>,
+    errorElement:<Error/>,
     children:[
       {
         path:"/",

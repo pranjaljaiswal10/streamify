@@ -1,7 +1,7 @@
 import WatchVideoButtonList from "./WatchVideoButtonList";
 import WatchvideoDescription from "./WatchvideoDescription";
-import { formatter } from "../utils/helper";
-import useGetVideoDetail from "../utils/hooks/useGetVideoDetail";
+import { formatter } from "../../utils/helper";
+import useGetVideoDetail from "../../utils/hooks/useGetVideoDetail";
 
 const WatchVideoDetailContainer = ({ videoId }) => {
   const videoDetail=useGetVideoDetail(videoId)

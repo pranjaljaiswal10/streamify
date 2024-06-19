@@ -1,8 +1,8 @@
 
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
-import HomePageShimmer from "./HomePageShimmer";
-import useGetHomePageVideo from "../utils/hooks/useGetHomePageVideo";
+import HomePageShimmer from "../Shimmer/HomePageShimmer";
+import useGetHomePageVideo from "../../utils/hooks/useGetHomePageVideo";
 
 
 const VideoContainer = () => {

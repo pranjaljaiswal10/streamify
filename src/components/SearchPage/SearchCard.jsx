@@ -1,4 +1,4 @@
-import { formatter } from "../utils/helper";
+import { formatter } from "../../utils/helper";
 
 const SearchCard = ({
   channelThumbnail,

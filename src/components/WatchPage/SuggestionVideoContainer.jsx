@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from "react-router-dom";
 import SuggestionCard from "./SuggestionCard";
-import useGetSuggestionVideo from "../utils/hooks/useGetSuggestionVideo";
+import useGetSuggestionVideo from "../../utils/hooks/useGetSuggestionVideo";
 
 const SuggestionVideoContainer = () => {
   const [searchParams] = useSearchParams();

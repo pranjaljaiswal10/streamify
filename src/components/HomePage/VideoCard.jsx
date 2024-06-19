@@ -1,6 +1,6 @@
 import moment from "moment";
-import { USER_ICON } from "../utils/constant";
-import { formatter, relativeTime } from "../utils/helper";
+import { formatter, relativeTime } from "../../utils/helper";
+import { USER_ICON } from "../../utils/constant";
 
 const VideoCard = ({ snippet, statistics, contentDetails, thumbnail }) => {
   const {

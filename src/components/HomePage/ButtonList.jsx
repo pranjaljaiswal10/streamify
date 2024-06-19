@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addKeyword } from "../utils/keywordSlice";
+import { addKeyword } from "../../utils/keywordSlice";
 
 
 const ButtonList = () => {

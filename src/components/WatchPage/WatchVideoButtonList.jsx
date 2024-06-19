@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { YOUTUBE_CHANNEL_DETAILS_API } from "../utils/constant";
+import { YOUTUBE_CHANNEL_DETAILS_API } from "../../utils/constant";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { TfiDownload } from "react-icons/tfi";
 import { PiShareFat } from "react-icons/pi";
-import { formatter } from "../utils/helper";
+import { formatter } from "../../utils/helper";
 
 const WatchVideoButtonList = ({ channelId, likeCount }) => {
   const [channelDetail, setChannelDetail] = useState(null);

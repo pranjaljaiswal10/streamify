@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { USER_ICON } from "../utils/constant";
-import { addMessage } from "../utils/chatSlice";
+import { USER_ICON } from "../../utils/constant";
+import { addMessage } from "../../utils/chatSlice";
 
 const LiveChat = () => {
   const [inputMessage, setInputMessage] = useState("");

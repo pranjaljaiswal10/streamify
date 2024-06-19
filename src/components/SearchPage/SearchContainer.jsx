@@ -2,7 +2,7 @@ import SearchCard from "./SearchCard";
 import { Link, useSearchParams } from "react-router-dom";
 import {  ImSpinner8 } from "react-icons/im";
 import { useSelector } from "react-redux";
-import useGetSearchVideo from "../utils/hooks/useGetSearchVideo";
+import useGetSearchVideo from "../../utils/hooks/useGetSearchVideo";
 
 const SearchContainer = () => {
   const [searchParams] = useSearchParams();

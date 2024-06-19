@@ -1,13 +1,14 @@
-import { formatter } from "../utils/helper";
+import { formatter } from "../../utils/helper";
 
-
-const ButtonCard = ({ channelThumbnail,
-    lengthText,
-    channelTitle,
-    publishedTimeText,
-    title,
-    thumbnail,
-    viewCount,}) => {
+const ButtonCard = ({
+  channelThumbnail,
+  lengthText,
+  channelTitle,
+  publishedTimeText,
+  title,
+  thumbnail,
+  viewCount,
+}) => {
   return (
     <div className="hover:shadow-lg p-2 m-2 w-72">
       <div className="relative">
@@ -28,11 +29,11 @@ const ButtonCard = ({ channelThumbnail,
           <li className="inline text-zinc-600 font-semibold">{`${formatter.format(
             viewCount
           )} views • 
-          ${ publishedTimeText }`}</li>
+          ${publishedTimeText}`}</li>
         </ul>
       </div>
     </div>
-  )
+  );
 };
 
 export default ButtonCard;

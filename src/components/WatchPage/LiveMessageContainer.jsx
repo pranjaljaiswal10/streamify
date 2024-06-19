@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import LiveChat from "./LiveChat";
-import { addMessage } from "../utils/chatSlice";
+import { addMessage } from "../../utils/chatSlice";
 import { randAvatar, randFullName, randTextRange } from "@ngneat/falso";
 
 

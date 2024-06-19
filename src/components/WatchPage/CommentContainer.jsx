@@ -1,6 +1,7 @@
 import { useState } from "react";
-import useGetComment from "../utils/hooks/useGetComment";
+
 import CommentList from "./CommentList";
+import useGetComment from "../../utils/hooks/useGetComment";
 
 const CommentContainer = ({ videoId }) => {
   const [isReplyVisible, setIsReplyVisible] = useState("");

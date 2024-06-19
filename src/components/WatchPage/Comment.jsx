@@ -1,6 +1,6 @@
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
-import { formatter, relativeTime } from "../utils/helper";
-import { USER_ICON } from "../utils/constant";
+import { formatter, relativeTime } from "../../utils/helper";
+import { USER_ICON } from "../../utils/constant";
 
 const Comment = ({ message }) => {
   const {
