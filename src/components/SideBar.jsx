@@ -28,7 +28,7 @@ const SideBar = () => {
   return (
     toggleBar && (
       <div
-        className={`lg:ml-6  lg:mr-10 fixed z-10 overflow-auto md:overflow-visible bg-white  lg:w-[10rem] h-[500px]`}
+        className={`lg:ml-6  lg:mr-10 fixed z-10 overflow-auto md:overflow-visible bg-white  lg:w-[10rem] h-full`}
       >
         <ul className="space-y-3 mt-4 text-sm lg:pr-6">
           <li>

@@ -8,7 +8,7 @@ const ButtonContainer = () => {
   const videoList = useGetExploreVideo(keywordButton);
 
   return (
-    <div className={`flex flex-wrap`}>
+    <div className={`flex flex-wrap justify-center md:justify-start`}>
       {videoList
         .filter(
           (item) =>

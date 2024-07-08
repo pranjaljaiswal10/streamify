@@ -84,7 +84,7 @@ const Header = () => {
 
       {isVisible && (
         <div className="lg:mx-8 mx-0 md:hidden block  w-3/5 md:4/5 relative ">
-          <div className="flex items-center mt-2.5">
+          <div className="flex items-center mt-4">
             <button onClick={handleLeftArrowClick} className="absolute left-2">
               {<GoArrowLeft />}
             </button>
@@ -106,7 +106,7 @@ const Header = () => {
             </button>
             {searchQuery !== "" && (
               <button
-                className="absolute top-4 right-16 sm:top-5"
+                className="absolute top-5 right-16"
                 onClick={() => setSearchQuery("")}
               >
                 {<AiOutlineClose />}

@@ -30,7 +30,7 @@ export const YOUTUBE_VIDEO_DETAILS_API = (videoId) =>
   import.meta.env.VITE_GOOGLE_API_KEY;
 
 export const SEARCH_SUGGESTION_API = (query) =>
-  `http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${query}`;
+  `https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=${query}`;
 
 export const YOUTUBE_SEARCH_VIDEO_API = (query) =>
   "https://yt-api.p.rapidapi.com/search?query=" +

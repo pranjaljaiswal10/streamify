@@ -18,7 +18,7 @@ const SearchContainer = () => {
     <div
       className={`flex flex-col item-center  mt-4 ${
         toggleBar
-          ? "ml-56 lg:opacity-100 lg:bg-white  opacity-50 bg-gray-200"
+          ? "ml-48 lg:opacity-100 lg:bg-white  opacity-50 bg-gray-200"
           : "md:ml-20 mx-8 "
       }`}
     >

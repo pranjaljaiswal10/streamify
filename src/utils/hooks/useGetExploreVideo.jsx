@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { SEARCH_OPTIONS, YOUTUBE_KEYWORD_VIDEO_API } from "../constant";
 
+
 const useGetExploreVideo = (keyword) => {
   
   const [videoList, setVideoList] = useState([]);
   useEffect(() => {
+    
     getKeyWordVideo();
   }, [keyword]);
   const getKeyWordVideo = async () => {
