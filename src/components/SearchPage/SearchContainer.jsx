@@ -9,7 +9,6 @@ const SearchContainer = () => {
   const toggleBar = useSelector((store) => store.menu.isMenuOpen);
   const searchQuery = encodeURIComponent(searchParams.get("search-query"));
   const searchList = useGetSearchVideo(searchQuery);
-
   return searchList.length === 0 ? (
     <div className=" flex flex-wrap justify-center items-center h-screen w-screen">
       <ImSpinner8 className="w-16 h-16 text-gray-600 animate-spin fill-blue-600" />

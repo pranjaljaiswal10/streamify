@@ -56,7 +56,7 @@ const SideBar = () => {
                   isActive
                     ? "bg-gray-300 hover:bg-gray-400 font-bold"
                     : "bg-transparent"
-                }  pl-2 py-2 pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
+                }  pl-2 py-2 lg:pr-8 font-medium flex hover:bg-gray-300 duration-200 rounded-lg`
               }
             >
               <span className="text-xl">
@@ -78,7 +78,7 @@ const SideBar = () => {
                       isActive
                         ? "bg-gray-300 hover:bg-gray-400 font-bold"
                         : "bg-transparent"
-                    } pl-2 py-2 pr-8 font-medium hover:bg-gray-300 rounded-lg flex items-center`
+                    } pl-2 py-2 pr-6 font-medium hover:bg-gray-300 rounded-lg flex items-center`
                   }
                 >
                   <span className="text-xl"> {item.icon}</span>

@@ -35,6 +35,7 @@ const useGetHomePageVideo = () => {
     
       const response =  await fetch(YOUTUBE_VIDEOS_API(token))
       const data = await response.json();
+      console.log(data)
       setVideoList([...videoList, ...data.items]);
       setToken(data.nextPageToken);
       setChannelId((prevChannel) => [

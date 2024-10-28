@@ -27,7 +27,6 @@ const WatchPage = () => {
       window.removeEventListener("offline", handleOffline);
     };
   }, []);
-  console.log(isOnline);
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   useEffect(() => {
