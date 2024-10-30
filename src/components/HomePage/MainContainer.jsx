@@ -17,7 +17,7 @@ const MainContainer = () => {
         }`}
       >
         <ButtonList />
-        {keywordButton==""?<VideoContainer />:<ButtonContainer/>}
+        {keywordButton=="" || keywordButton=="All"?<VideoContainer />:<ButtonContainer/>}
       </div>
     </>
   );

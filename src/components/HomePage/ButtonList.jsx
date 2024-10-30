@@ -5,6 +5,7 @@ import { addKeyword } from "../../utils/keywordSlice";
 const ButtonList = () => {
   const dispatch=useDispatch()
   const button = [
+    "All",
     "Dan Abramov",
     "React js",
     "Redux",
