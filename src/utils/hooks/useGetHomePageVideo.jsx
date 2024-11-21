@@ -10,6 +10,7 @@ const useGetHomePageVideo = () => {
   const [channelThumbnail, setChannelThumbnail] = useState([]);
   const [token, setToken] = useState("");
   const [page, setPage] = useState(1);
+  const [hasMore,setHasMore]=useState(true)
   const getChannelDetail = useCallback(async () => {
     const res = await fetch(
       YOUTUBE_CHANNEL_DETAILS_API(channelId.toString()) 
@@ -35,8 +36,11 @@ const useGetHomePageVideo = () => {
     
       const response =  await fetch(YOUTUBE_VIDEOS_API(token))
       const data = await response.json();
-      console.log(data)
       setVideoList([...videoList, ...data.items]);
+     if(!data.nextPageToken)
+     {
+      setHasMore(false)
+     }
       setToken(data.nextPageToken);
       setChannelId((prevChannel) => [
         ...prevChannel,
@@ -49,16 +53,15 @@ const useGetHomePageVideo = () => {
 
   useEffect(() => {
     function handleScroll() {
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight
-      ) {
+       const { scrollTop, clientHeight, scrollHeight } =
+         document.documentElement;
+      if (scrollHeight - (scrollTop + clientHeight) < 100 && hasMore) {
         setPage((prev) => prev + 1);
       }
     }
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [hasMore]);
 
   return [videoList, channelThumbnail];
 };
